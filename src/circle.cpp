@@ -8,12 +8,12 @@ using namespace std;
 Circle::Circle(float x, float y, color_t color) {
     this->position = glm::vec3(x, y, 0);
     this->rotation = 0;
-    speedx = 0.00;
+    speedx = 0.08;
     // Our vertices. Three consecutive floats give a 3D vertex; Three consecutive vertices give a triangle.
     // A cube has 6 faces with 2 triangles each, so this makes 6*2=12 triangles, and 12*3 vertices
     const int n = 100;
     static GLfloat vertex_buffer_data[9*n] ;
-    float r = 0.25f;
+    float r = 0.20f;
     float angle = ( 2.0*M_PI / float(n));
     float theta = 0.0;
     for(int i=0;i<n;i++){
@@ -57,5 +57,6 @@ void Circle::set_position(float x, float y) {
 
 void Circle::tick() {
     // this->rotation += speedx;
+    this->position.x -= speedx;
 }
 

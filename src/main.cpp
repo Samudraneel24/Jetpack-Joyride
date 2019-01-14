@@ -16,7 +16,7 @@ GLFWwindow *window;
 **************************/
 
 Square floorarr[20], Barry;
-std::vector<Circle> Coin;
+std::vector<Circle> Coinarr;
 
 float screen_zoom = 1, screen_center_x = 0, screen_center_y = 0;
 float camera_rotation_angle = 0;
@@ -61,10 +61,8 @@ void draw() {
     for(int i=0;i<20;i++)
         floorarr[i].draw(VP);
     Barry.draw(VP);
-    C.draw(VP);
-    // s1.draw(VP);
-    // ball1.draw(VP);
-    // ball2.draw(VP);
+    for(int i=0;i<Coinarr.size();i++)
+        Coinarr[i].draw(VP);
 }
 
 void tick_input(GLFWwindow *window) {
@@ -81,13 +79,12 @@ void tick_input(GLFWwindow *window) {
             Barry.position.x += 0.1;
         else{
             for(int i=0;i<20;i++){
-                // floorarr[i].tick();
-                floorarr[i].speedx = 0.1;
+                floorarr[i].speedx = 0.2;
             }
         }
     }
     else if(up){
-        Barry.speedy += 0.06;
+        Barry.speedy += 0.01;
     }
 }
 
@@ -96,13 +93,44 @@ void tick_elements() {
         floorarr[i].tick();
         if(floorarr[i].position.x < -1)
             floorarr[i].position.x += 20;
-        if(floorarr[i].speedx > 0.04)
-            floorarr[i].speedx -= 0.01;
+        if(floorarr[i].speedx > 0.08)
+            floorarr[i].speedx -= 0.02;
     }
     Barry.tick();
     if(Barry.position.y > 1)
-        Barry.speedy -= 0.04;
-    C.tick();
+        Barry.speedy -= 0.005;
+    if(Coinarr.size() == 0){
+        float startx = 25 + rand()%5;
+        float starty = 6 + rand()%4;
+        float rows = 1 + rand()%4;
+        float cols = 1 + rand()%8;
+        for(int i=0;i<rows;i++)
+            for(int j = 0;j<cols;j++){
+                Coinarr.push_back(Circle( (startx + j)/2, (starty + i)/2 , COLOR_GOLD));
+            }
+    }
+    for(int i=0;i < Coinarr.size(); i++){
+        bounding_box_t Coinbound, Barrybound;
+        Coinbound.x = Coinarr[i].position.x;
+        Coinbound.y = Coinarr[i].position.y;
+        Coinbound.height = 0.4;
+        Coinbound.width = 0.4;
+        Barrybound.x = Barry.position.x;
+        Barrybound.y = Barry.position.y;
+        Barrybound.height = Barrybound.width = 1.0;
+        if(detect_collision(Coinbound, Barrybound)){
+            Coinarr.erase(Coinarr.begin() + i);
+            i--;
+        }
+    }
+    for(int i=0;i<Coinarr.size();i++){
+        Coinarr[i].tick();
+        Coinarr[i].speedx = floorarr[0].speedx;
+        if(Coinarr[i].position.x <= -1.0){
+            Coinarr.erase(Coinarr.begin() + i);
+            i--;
+        }
+    }
     // camera_rotation_angle += 1;
 }
 
@@ -118,15 +146,12 @@ void initGL(GLFWwindow *window, int width, int height) {
             floorarr[i] = Square(curx, 0.0, COLOR_BLACK);
         else
             floorarr[i] = Square(curx, 0.0, COLOR_SILVER);
-        floorarr[i].speedx = 0.04;
+        floorarr[i].speedx = 0.08;
         curx++;
     }
     Barry = Square(2.5, 1.0, COLOR_BLUE);
     Barry.speedx = 0;
     Barry.speedy = 0;
-
-    // Coins
-    
 
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");
@@ -158,9 +183,6 @@ int main(int argc, char **argv) {
     window = initGLFW(width, height);
 
     initGL (window, width, height);
-    // ball1.speedx = 0.01;
-    // ball2.speedx = -0.01;
-
     /* Draw in loop */
     while (!glfwWindowShouldClose(window)) {
         // Process timers
@@ -189,10 +211,6 @@ bool detect_collision(bounding_box_t a, bounding_box_t b) {
 }
 
 void reset_screen() {
-    // float top    = screen_center_y + 4 / screen_zoom;
-    // float bottom = screen_center_y - 4 / screen_zoom;
-    // float left   = screen_center_x - 6.6666 / screen_zoom;
-    // float right  = screen_center_x + 6.6666 / screen_zoom;
     float top    = screen_center_y + 8 / screen_zoom;
     float bottom = screen_center_y;
     float left   = screen_center_x;
