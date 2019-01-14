@@ -1,0 +1,156 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/ball.cpp
+ball.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/ball.h
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/main.h
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/ball.h
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/main.h
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/circle.cpp
+iostream
+-
+fstream
+-
+circle.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/circle.h
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/main.h
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/circle.h
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/main.h
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/color.cpp
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/main.h
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/input.cpp
+iostream
+-
+cmath
+-
+fstream
+-
+vector
+-
+GL/glew.h
+-
+GLFW/glfw3.h
+-
+glm/glm.hpp
+-
+glm/gtx/transform.hpp
+-
+glm/gtc/matrix_transform.hpp
+-
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/main.h
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/main.cpp
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/main.h
+timer.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/timer.h
+ball.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/ball.h
+square.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/square.h
+circle.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/circle.h
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/main.h
+iostream
+-
+cmath
+-
+fstream
+-
+vector
+-
+GL/glew.h
+-
+GLFW/glfw3.h
+-
+glm/glm.hpp
+-
+glm/gtx/transform.hpp
+-
+glm/gtc/matrix_transform.hpp
+-
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/nonedit.cpp
+iostream
+-
+cmath
+-
+fstream
+-
+vector
+-
+GL/glew.h
+-
+GLFW/glfw3.h
+-
+glm/glm.hpp
+-
+glm/gtx/transform.hpp
+-
+glm/gtc/matrix_transform.hpp
+-
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/main.h
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/other_handlers.cpp
+iostream
+-
+cmath
+-
+fstream
+-
+vector
+-
+GL/glew.h
+-
+GLFW/glfw3.h
+-
+glm/glm.hpp
+-
+glm/gtx/transform.hpp
+-
+glm/gtc/matrix_transform.hpp
+-
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/main.h
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/square.cpp
+iostream
+-
+fstream
+-
+square.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/square.h
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/main.h
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/square.h
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/main.h
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/timer.cpp
+timer.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/timer.h
+GLFW/glfw3.h
+-
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/graphics-boilerplate/src/timer.h
+
