@@ -20,7 +20,6 @@ CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/circle.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/main.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/rectangle.h
-CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/square.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/timer.h
 
 CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o: ../src/main.h
@@ -32,10 +31,6 @@ CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o: ../src/other_handlers.cp
 CMakeFiles/graphics_asgn1.dir/src/rectangle.cpp.o: ../src/main.h
 CMakeFiles/graphics_asgn1.dir/src/rectangle.cpp.o: ../src/rectangle.cpp
 CMakeFiles/graphics_asgn1.dir/src/rectangle.cpp.o: ../src/rectangle.h
-
-CMakeFiles/graphics_asgn1.dir/src/square.cpp.o: ../src/main.h
-CMakeFiles/graphics_asgn1.dir/src/square.cpp.o: ../src/square.cpp
-CMakeFiles/graphics_asgn1.dir/src/square.cpp.o: ../src/square.h
 
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o: ../src/timer.cpp
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o: ../src/timer.h

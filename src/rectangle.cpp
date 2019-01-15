@@ -8,17 +8,28 @@ using namespace std;
 Rectangle::Rectangle(float x, float y, float len, float width, float angle, float speedx, float speedy, color_t color) {
     this->position = glm::vec3(x, y, 0);
     this->rotation = angle;
-    this->speedx = speedx;
+    this->len = len;
+    this->width = width;
     this->speedy = speedy;
+    this->speedx = speedx;
     // Our vertices. Three consecutive floats give a 3D vertex; Three consecutive vertices give a triangle.
     // A cube has 6 faces with 2 triangles each, so this makes 6*2=12 triangles, and 12*3 vertices
-    static const GLfloat vertex_buffer_data[] = {
+    // cout<<this->len<<" - "<<this->width<<endl;
+    // const float l = len, w = width;
+    cout<<len<<" "<<width<<endl;
+    GLfloat vertex_buffer_data[] = {
       0.0f, 0.0f, 0.0f,         
       len, 0.0f, 0.0f,          
-      0.0f,  width, 0.0f,         
+      0.0f, width, 0.0f,         
       len, 0.0f, 0.0f,          
       0.0f, width, 0.0f,
       len, width, 0.0f,
+      //   0.0f, 0.0f, 0.0f,         
+      // 2.0, 0.0f, 0.0f,          
+      // 0.0f,  3.0, 0.0f,         
+      // 2.0, 0.0f, 0.0f,          
+      // 0.0f, 3.0, 0.0f,
+      // 2.0, 3.0, 0.0f,
     };
 
     this->object = create3DObject(GL_TRIANGLES, 6, vertex_buffer_data, color, GL_FILL);
@@ -41,14 +52,12 @@ void Rectangle::set_position(float x, float y) {
 }
 
 void Rectangle::tick() {
-    // this->rotation += speedx;
-    // this->position.x -= speedx;
-    // if(this->position.y+speedy >= 1.0 && this->position.y+speedy <= 7.2){
-    //     this->position.y += speedy;
-    // }
-    // if(this->position.y > 1.0 && this->position.y + speedy < 1.0){
-    //     this->position.y = 1.0;
-    //     this->speedy = 0.0;
-    // }
+    this->position.x -= speedx;
+    if(this->position.y+speedy >= 1.0 && this->position.y+speedy <= 7.2){
+        this->position.y += speedy;
+    }
+    if(this->position.y > 1.0 && this->position.y + speedy < 1.0){
+        this->position.y = 1.0;
+        speedy = 0.0;
+    }
 }
-

@@ -339,33 +339,6 @@ src/rectangle.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/rectangle.cpp.s
 .PHONY : src/rectangle.cpp.s
 
-src/square.o: src/square.cpp.o
-
-.PHONY : src/square.o
-
-# target to build an object file
-src/square.cpp.o:
-	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/square.cpp.o
-.PHONY : src/square.cpp.o
-
-src/square.i: src/square.cpp.i
-
-.PHONY : src/square.i
-
-# target to preprocess a source file
-src/square.cpp.i:
-	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/square.cpp.i
-.PHONY : src/square.cpp.i
-
-src/square.s: src/square.cpp.s
-
-.PHONY : src/square.s
-
-# target to generate assembly for a file
-src/square.cpp.s:
-	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/square.cpp.s
-.PHONY : src/square.cpp.s
-
 src/timer.o: src/timer.cpp.o
 
 .PHONY : src/timer.o
@@ -426,9 +399,6 @@ help:
 	@echo "... src/rectangle.o"
 	@echo "... src/rectangle.i"
 	@echo "... src/rectangle.s"
-	@echo "... src/square.o"
-	@echo "... src/square.i"
-	@echo "... src/square.s"
 	@echo "... src/timer.o"
 	@echo "... src/timer.i"
 	@echo "... src/timer.s"

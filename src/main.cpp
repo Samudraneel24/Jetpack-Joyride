@@ -2,7 +2,6 @@
 #include "main.h"
 #include "timer.h"
 #include "ball.h"
-#include "square.h"
 #include "circle.h"
 #include "rectangle.h"
 
@@ -16,7 +15,7 @@ GLFWwindow *window;
 * Customizable functions *
 **************************/
 
-Square floorarr[20], Barry;
+Rectangle floorarr[20], Barry;
 std::vector<Circle> Coinarr;
 Rectangle R;
 
@@ -65,7 +64,7 @@ void draw() {
     Barry.draw(VP);
     for(int i=0;i<Coinarr.size();i++)
         Coinarr[i].draw(VP);
-    R.draw(VP);
+    // R.draw(VP);
 }
 
 void tick_input(GLFWwindow *window) {
@@ -114,13 +113,14 @@ void tick_elements() {
     }
     for(int i=0;i < Coinarr.size(); i++){
         bounding_box_t Coinbound, Barrybound;
-        Coinbound.x = Coinarr[i].position.x;
-        Coinbound.y = Coinarr[i].position.y;
+        Coinbound.x = Coinarr[i].position.x-0.2;
+        Coinbound.y = Coinarr[i].position.y-0.2;
         Coinbound.height = 0.4;
         Coinbound.width = 0.4;
         Barrybound.x = Barry.position.x;
         Barrybound.y = Barry.position.y;
-        Barrybound.height = Barrybound.width = 1.0;
+        Barrybound.height = Barry.width;
+        Barrybound.width = Barry.len;
         if(detect_collision(Coinbound, Barrybound)){
             Coinarr.erase(Coinarr.begin() + i);
             i--;
@@ -134,7 +134,7 @@ void tick_elements() {
             i--;
         }
     }
-    R.tick();
+    // R.tick();
     // camera_rotation_angle += 1;
 }
 
@@ -143,20 +143,19 @@ void tick_elements() {
 void initGL(GLFWwindow *window, int width, int height) {
     /* Objects should be created before any other gl function and shaders */
     // Create the models
-    // floorarr[0] = Ball(0.5, 0.5, COLOR_BLACK);
     float curx = 0.0;
     for(int i=0;i<20;i++){
-        if(i%2==0)
-            floorarr[i] = Square(curx, 0.0, COLOR_BLACK);
-        else
-            floorarr[i] = Square(curx, 0.0, COLOR_SILVER);
-        floorarr[i].speedx = 0.08;
-        curx++;
+        if(i%2==0){
+            floorarr[i] = Rectangle(curx, 0.0, 1.0, 1.0, 0.0, 0.08, 0.0, COLOR_BLACK);
+            curx += 1.0;
+        }
+        else{
+            floorarr[i] = Rectangle(curx, 0.0, 1.0, 1.0, 0.0, 0.08, 0.0, COLOR_SILVER);
+            curx += 1.0;
+        }
     }
-    Barry = Square(2.5, 1.0, COLOR_BLUE);
-    Barry.speedx = 0;
-    Barry.speedy = 0;
-    R = Rectangle(3.0, 3.0, 4.0, 2.0, 45.0, 0.0, 0.0, COLOR_BLACK);
+    Barry = Rectangle(2.5, 1.0, 0.5, 1.0, 0.0, 0.0, 0.0, COLOR_BLUE);
+    // R = Rectangle(4.0, 4.0, 2.0, 4.0, 45, 0.0, 0.0, COLOR_BLACK);
 
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");
