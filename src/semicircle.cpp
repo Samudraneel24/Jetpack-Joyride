@@ -5,11 +5,15 @@
 #include "main.h"
 using namespace std;
 
-Circle::Circle(float x, float y, float radius, float speedx, float speedy, color_t color) {
+Circle::Circle(float x, float y, color_t color) {
     this->position = glm::vec3(x, y, 0);
+    this->rotation = 0;
+    speedx = 0.08;
+    // Our vertices. Three consecutive floats give a 3D vertex; Three consecutive vertices give a triangle.
+    // A cube has 6 faces with 2 triangles each, so this makes 6*2=12 triangles, and 12*3 vertices
     const int n = 100;
-    GLfloat vertex_buffer_data[9*n] ;
-    float r = radius;
+    static GLfloat vertex_buffer_data[9*n] ;
+    float r = 0.20f;
     float angle = ( 2.0*M_PI / float(n));
     float theta = 0.0;
     for(int i=0;i<n;i++){
@@ -38,7 +42,7 @@ Circle::Circle(float x, float y, float radius, float speedx, float speedy, color
 void Circle::draw(glm::mat4 VP) {
     Matrices.model = glm::mat4(1.0f);
     glm::mat4 translate = glm::translate (this->position);    // glTranslatef
-    glm::mat4 rotate    = glm::rotate((float) (0.0 * M_PI / 180.0f), glm::vec3(1, 0, 0));
+    glm::mat4 rotate    = glm::rotate((float) (this->rotation * M_PI / 180.0f), glm::vec3(1, 0, 0));
     // No need as coords centered at 0, 0, 0 of cube arouund which we waant to rotate
     // rotate          = rotate * glm::translate(glm::vec3(0, -0.6, 0));
     Matrices.model *= (translate * rotate);
@@ -52,6 +56,7 @@ void Circle::set_position(float x, float y) {
 }
 
 void Circle::tick() {
+    // this->rotation += speedx;
     this->position.x -= speedx;
 }
 

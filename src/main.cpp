@@ -108,7 +108,7 @@ void tick_elements() {
         float cols = 1 + rand()%8;
         for(int i=0;i<rows;i++)
             for(int j = 0;j<cols;j++){
-                Coinarr.push_back(Circle( (startx + j)/2, (starty + i)/2 , COLOR_GOLD));
+                Coinarr.push_back(Circle( (startx + j)/2, (starty + i)/2 , 0.2, 0.0, 0.0, COLOR_GOLD));
             }
     }
     for(int i=0;i < Coinarr.size(); i++){
