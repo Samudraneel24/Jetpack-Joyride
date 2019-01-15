@@ -12,11 +12,6 @@ Rectangle::Rectangle(float x, float y, float len, float width, float angle, floa
     this->width = width;
     this->speedy = speedy;
     this->speedx = speedx;
-    // Our vertices. Three consecutive floats give a 3D vertex; Three consecutive vertices give a triangle.
-    // A cube has 6 faces with 2 triangles each, so this makes 6*2=12 triangles, and 12*3 vertices
-    // cout<<this->len<<" - "<<this->width<<endl;
-    // const float l = len, w = width;
-    cout<<len<<" "<<width<<endl;
     GLfloat vertex_buffer_data[] = {
       0.0f, 0.0f, 0.0f,         
       len, 0.0f, 0.0f,          
@@ -24,12 +19,6 @@ Rectangle::Rectangle(float x, float y, float len, float width, float angle, floa
       len, 0.0f, 0.0f,          
       0.0f, width, 0.0f,
       len, width, 0.0f,
-      //   0.0f, 0.0f, 0.0f,         
-      // 2.0, 0.0f, 0.0f,          
-      // 0.0f,  3.0, 0.0f,         
-      // 2.0, 0.0f, 0.0f,          
-      // 0.0f, 3.0, 0.0f,
-      // 2.0, 3.0, 0.0f,
     };
 
     this->object = create3DObject(GL_TRIANGLES, 6, vertex_buffer_data, color, GL_FILL);

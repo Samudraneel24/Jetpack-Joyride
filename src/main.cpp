@@ -5,6 +5,7 @@
 #include "circle.h"
 #include "semicircle.h"
 #include "rectangle.h"
+#include "laser.h"
 
 using namespace std;
 
@@ -18,7 +19,8 @@ GLFWwindow *window;
 
 Rectangle floorarr[20], Barry;
 std::vector<Circle> Coinarr;
-Semicircle S;
+std::vector<Laser> L;
+int busy = 0, counter = 0, lasercounter = 0, gameover = 0;
 
 float screen_zoom = 1, screen_center_x = 0, screen_center_y = 0;
 float camera_rotation_angle = 0;
@@ -65,8 +67,9 @@ void draw() {
     Barry.draw(VP);
     for(int i=0;i<Coinarr.size();i++)
         Coinarr[i].draw(VP);
-    S.draw(VP);
-    // R.draw(VP);
+    if(busy == 1){
+        L[0].draw(VP);
+    }
 }
 
 void tick_input(GLFWwindow *window) {
@@ -93,6 +96,35 @@ void tick_input(GLFWwindow *window) {
 }
 
 void tick_elements() {
+    bounding_box_t Barrybound;
+    Barrybound.x = Barry.position.x;
+    Barrybound.y = Barry.position.y;
+    Barrybound.height = Barry.width;
+    Barrybound.width = Barry.len;
+// Enemy
+    counter = (counter + 1)%INT_MAX;
+    lasercounter++;
+    if(counter%1000 == 0 && busy == 0){
+        L.push_back(Laser(3.0 + rand()%5));
+        busy = 1;
+        lasercounter = 0;
+    }
+    else if(lasercounter == 800 && busy == 1){
+        L.erase(L.begin());
+        busy = 0;
+    }
+    if(busy == 1){
+        L[0].tick(lasercounter);
+        bounding_box_t Laserbound;
+        Laserbound.x = L[0].left + 0.8;
+        Laserbound.y = L[0].y;
+        Laserbound.height = 0.4;
+        Laserbound.width = 9.7;
+        if(L[0].on == 1 && detect_collision(Laserbound, Barrybound))
+            gameover = 1;
+    }
+
+// Floor
     for(int i=0;i<20;i++){
         floorarr[i].tick();
         if(floorarr[i].position.x < -1)
@@ -100,9 +132,13 @@ void tick_elements() {
         if(floorarr[i].speedx > 0.08)
             floorarr[i].speedx -= 0.02;
     }
+
+// Barry
     Barry.tick();
     if(Barry.position.y > 1)
         Barry.speedy -= 0.005;
+
+// Coins
     if(Coinarr.size() == 0){
         float startx = 25 + rand()%5;
         float starty = 6 + rand()%4;
@@ -114,15 +150,11 @@ void tick_elements() {
             }
     }
     for(int i=0;i < Coinarr.size(); i++){
-        bounding_box_t Coinbound, Barrybound;
+        bounding_box_t Coinbound;
         Coinbound.x = Coinarr[i].position.x-0.2;
         Coinbound.y = Coinarr[i].position.y-0.2;
         Coinbound.height = 0.4;
         Coinbound.width = 0.4;
-        Barrybound.x = Barry.position.x;
-        Barrybound.y = Barry.position.y;
-        Barrybound.height = Barry.width;
-        Barrybound.width = Barry.len;
         if(detect_collision(Coinbound, Barrybound)){
             Coinarr.erase(Coinarr.begin() + i);
             i--;
@@ -136,7 +168,6 @@ void tick_elements() {
             i--;
         }
     }
-    S.tick();
     // camera_rotation_angle += 1;
 }
 
@@ -157,7 +188,6 @@ void initGL(GLFWwindow *window, int width, int height) {
         }
     }
     Barry = Rectangle(2.5, 1.0, 0.5, 1.0, 0.0, 0.0, 0.0, COLOR_BLUE);
-    S = Semicircle(3.0, 3.0, 1.5, 0.0, 0.0, 90, COLOR_BLACK);
 
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");
@@ -190,7 +220,7 @@ int main(int argc, char **argv) {
 
     initGL (window, width, height);
     /* Draw in loop */
-    while (!glfwWindowShouldClose(window)) {
+    while (gameover == 0 && !glfwWindowShouldClose(window)) {
         // Process timers
 
         if (t60.processTick()) {
@@ -202,6 +232,7 @@ int main(int argc, char **argv) {
 
             tick_elements();
             tick_input(window);
+            // cout<<gameover<<endl;
         }
 
         // Poll for Keyboard and mouse events

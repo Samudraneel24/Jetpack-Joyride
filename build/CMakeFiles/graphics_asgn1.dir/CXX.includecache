@@ -65,6 +65,10 @@ laser.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/laser.h
 main.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
+semicircle.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/semicircle.h
+rectangle.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.h
 
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/laser.h
 main.h
@@ -83,6 +87,8 @@ semicircle.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/semicircle.h
 rectangle.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.h
+laser.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/laser.h
 
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
 iostream

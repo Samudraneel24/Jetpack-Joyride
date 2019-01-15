@@ -9,8 +9,9 @@ public:
     Laser() {}
     Laser(float y);
     void draw(glm::mat4 VP);
-    // void set_position(float x, float y);
-    void tick();
+    void tick(int lasercounter);
+    float left, right, y;
+    int on;
 private:
     VAO *object;
 };
