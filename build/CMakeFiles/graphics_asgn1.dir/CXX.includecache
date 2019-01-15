@@ -67,6 +67,8 @@ square.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/square.h
 circle.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/circle.h
+rectangle.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.h
 
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
 iostream
@@ -131,6 +133,20 @@ glm/gtx/transform.hpp
 -
 glm/gtc/matrix_transform.hpp
 -
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.cpp
+iostream
+-
+fstream
+-
+rectangle.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.h
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.h
 main.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
 

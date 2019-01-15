@@ -312,6 +312,33 @@ src/other_handlers.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.s
 .PHONY : src/other_handlers.cpp.s
 
+src/rectangle.o: src/rectangle.cpp.o
+
+.PHONY : src/rectangle.o
+
+# target to build an object file
+src/rectangle.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/rectangle.cpp.o
+.PHONY : src/rectangle.cpp.o
+
+src/rectangle.i: src/rectangle.cpp.i
+
+.PHONY : src/rectangle.i
+
+# target to preprocess a source file
+src/rectangle.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/rectangle.cpp.i
+.PHONY : src/rectangle.cpp.i
+
+src/rectangle.s: src/rectangle.cpp.s
+
+.PHONY : src/rectangle.s
+
+# target to generate assembly for a file
+src/rectangle.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/rectangle.cpp.s
+.PHONY : src/rectangle.cpp.s
+
 src/square.o: src/square.cpp.o
 
 .PHONY : src/square.o
@@ -396,6 +423,9 @@ help:
 	@echo "... src/other_handlers.o"
 	@echo "... src/other_handlers.i"
 	@echo "... src/other_handlers.s"
+	@echo "... src/rectangle.o"
+	@echo "... src/rectangle.i"
+	@echo "... src/rectangle.s"
 	@echo "... src/square.o"
 	@echo "... src/square.i"
 	@echo "... src/square.s"
