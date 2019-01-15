@@ -231,6 +231,33 @@ src/input.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/input.cpp.s
 .PHONY : src/input.cpp.s
 
+src/laser.o: src/laser.cpp.o
+
+.PHONY : src/laser.o
+
+# target to build an object file
+src/laser.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/laser.cpp.o
+.PHONY : src/laser.cpp.o
+
+src/laser.i: src/laser.cpp.i
+
+.PHONY : src/laser.i
+
+# target to preprocess a source file
+src/laser.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/laser.cpp.i
+.PHONY : src/laser.cpp.i
+
+src/laser.s: src/laser.cpp.s
+
+.PHONY : src/laser.s
+
+# target to generate assembly for a file
+src/laser.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/laser.cpp.s
+.PHONY : src/laser.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -339,6 +366,33 @@ src/rectangle.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/rectangle.cpp.s
 .PHONY : src/rectangle.cpp.s
 
+src/semicircle.o: src/semicircle.cpp.o
+
+.PHONY : src/semicircle.o
+
+# target to build an object file
+src/semicircle.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/semicircle.cpp.o
+.PHONY : src/semicircle.cpp.o
+
+src/semicircle.i: src/semicircle.cpp.i
+
+.PHONY : src/semicircle.i
+
+# target to preprocess a source file
+src/semicircle.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/semicircle.cpp.i
+.PHONY : src/semicircle.cpp.i
+
+src/semicircle.s: src/semicircle.cpp.s
+
+.PHONY : src/semicircle.s
+
+# target to generate assembly for a file
+src/semicircle.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/semicircle.cpp.s
+.PHONY : src/semicircle.cpp.s
+
 src/timer.o: src/timer.cpp.o
 
 .PHONY : src/timer.o
@@ -387,6 +441,9 @@ help:
 	@echo "... src/input.o"
 	@echo "... src/input.i"
 	@echo "... src/input.s"
+	@echo "... src/laser.o"
+	@echo "... src/laser.i"
+	@echo "... src/laser.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
@@ -399,6 +456,9 @@ help:
 	@echo "... src/rectangle.o"
 	@echo "... src/rectangle.i"
 	@echo "... src/rectangle.s"
+	@echo "... src/semicircle.o"
+	@echo "... src/semicircle.i"
+	@echo "... src/semicircle.s"
 	@echo "... src/timer.o"
 	@echo "... src/timer.i"
 	@echo "... src/timer.s"

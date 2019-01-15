@@ -3,6 +3,7 @@
 #include "timer.h"
 #include "ball.h"
 #include "circle.h"
+#include "semicircle.h"
 #include "rectangle.h"
 
 using namespace std;
@@ -17,7 +18,7 @@ GLFWwindow *window;
 
 Rectangle floorarr[20], Barry;
 std::vector<Circle> Coinarr;
-Rectangle R;
+Semicircle S;
 
 float screen_zoom = 1, screen_center_x = 0, screen_center_y = 0;
 float camera_rotation_angle = 0;
@@ -64,6 +65,7 @@ void draw() {
     Barry.draw(VP);
     for(int i=0;i<Coinarr.size();i++)
         Coinarr[i].draw(VP);
+    S.draw(VP);
     // R.draw(VP);
 }
 
@@ -134,7 +136,7 @@ void tick_elements() {
             i--;
         }
     }
-    // R.tick();
+    S.tick();
     // camera_rotation_angle += 1;
 }
 
@@ -155,7 +157,7 @@ void initGL(GLFWwindow *window, int width, int height) {
         }
     }
     Barry = Rectangle(2.5, 1.0, 0.5, 1.0, 0.0, 0.0, 0.0, COLOR_BLUE);
-    // R = Rectangle(4.0, 4.0, 2.0, 4.0, 45, 0.0, 0.0, COLOR_BLACK);
+    S = Semicircle(3.0, 3.0, 1.5, 0.0, 0.0, 90, COLOR_BLACK);
 
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");
