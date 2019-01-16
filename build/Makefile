@@ -231,6 +231,33 @@ src/color.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/color.cpp.s
 .PHONY : src/color.cpp.s
 
+src/ellipse.o: src/ellipse.cpp.o
+
+.PHONY : src/ellipse.o
+
+# target to build an object file
+src/ellipse.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/ellipse.cpp.o
+.PHONY : src/ellipse.cpp.o
+
+src/ellipse.i: src/ellipse.cpp.i
+
+.PHONY : src/ellipse.i
+
+# target to preprocess a source file
+src/ellipse.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/ellipse.cpp.i
+.PHONY : src/ellipse.cpp.i
+
+src/ellipse.s: src/ellipse.cpp.s
+
+.PHONY : src/ellipse.s
+
+# target to generate assembly for a file
+src/ellipse.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/ellipse.cpp.s
+.PHONY : src/ellipse.cpp.s
+
 src/fire.o: src/fire.cpp.o
 
 .PHONY : src/fire.o
@@ -522,6 +549,9 @@ help:
 	@echo "... src/color.o"
 	@echo "... src/color.i"
 	@echo "... src/color.s"
+	@echo "... src/ellipse.o"
+	@echo "... src/ellipse.i"
+	@echo "... src/ellipse.s"
 	@echo "... src/fire.o"
 	@echo "... src/fire.i"
 	@echo "... src/fire.s"

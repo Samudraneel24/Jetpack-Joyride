@@ -9,6 +9,7 @@
 #include "fire.h"
 #include "Lineintersection.h"
 #include "magnet.h"
+#include "ellipse.h"
 
 using namespace std;
 
@@ -25,6 +26,7 @@ std::vector<Circle> Coinarr;
 std::vector<Laser> L;
 std::vector<Fire> F;
 std::vector<Magnet> M;
+std::vector<Ellipse> Balloon;
 
 int busy = 0, counter = 0, lasercounter = 0, gameover = 0;
 int lasercount = 0, firecount = 0;
@@ -80,6 +82,7 @@ void draw() {
         F[0].draw(VP);
     if(M.size() == 1)
         M[0].draw(VP);
+    Balloon[0].draw(VP);
 }
 
 void tick_input(GLFWwindow *window) {
@@ -106,6 +109,7 @@ void tick_input(GLFWwindow *window) {
 }
 
 void tick_elements() {
+    Balloon[0].tick();
     bounding_box_t Barrybound;
     Barrybound.x = Barry.position.x;
     Barrybound.y = Barry.position.y;
@@ -211,13 +215,13 @@ void tick_elements() {
     if(M.size() == 1){
         M[0].tick(floorarr[0].speedx, floorarr[0].speedy);
         if(M[0].x < Barry.position.x)
-            Barry.position.x -= 0.1;
+            Barry.position.x -= 0.05;
         else if(M[0].x > Barry.position.x)
-            Barry.position.x += 0.15;
+            Barry.position.x += 0.05;
         if(M[0].y < Barry.position.y)
-            Barry.position.y -= 0.15;
+            Barry.position.y -= 0.05;
         else if(M[0].y > Barry.position.y)
-            Barry.position.y += 0.15;
+            Barry.position.y += 0.05;
         if(M[0].x < -2.0){
             M.erase(M.begin());
         }
@@ -287,6 +291,7 @@ void initGL(GLFWwindow *window, int width, int height) {
         }
     }
     Barry = Rectangle(2.5, 1.0, 0.5, 1.0, 0.0, 0.0, 0.0, COLOR_BLUE);
+    Balloon.push_back(Ellipse(4.0, 4.0, 2.0, 4.0, 0.0, 0.0, COLOR_BLACK));
 
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");

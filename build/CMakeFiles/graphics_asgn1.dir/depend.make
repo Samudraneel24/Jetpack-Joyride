@@ -16,6 +16,10 @@ CMakeFiles/graphics_asgn1.dir/src/circle.cpp.o: ../src/main.h
 CMakeFiles/graphics_asgn1.dir/src/color.cpp.o: ../src/color.cpp
 CMakeFiles/graphics_asgn1.dir/src/color.cpp.o: ../src/main.h
 
+CMakeFiles/graphics_asgn1.dir/src/ellipse.cpp.o: ../src/ellipse.cpp
+CMakeFiles/graphics_asgn1.dir/src/ellipse.cpp.o: ../src/ellipse.h
+CMakeFiles/graphics_asgn1.dir/src/ellipse.cpp.o: ../src/main.h
+
 CMakeFiles/graphics_asgn1.dir/src/fire.cpp.o: ../src/circle.h
 CMakeFiles/graphics_asgn1.dir/src/fire.cpp.o: ../src/fire.cpp
 CMakeFiles/graphics_asgn1.dir/src/fire.cpp.o: ../src/fire.h
@@ -40,6 +44,7 @@ CMakeFiles/graphics_asgn1.dir/src/magnet.cpp.o: ../src/semicircle.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/Lineintersection.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/ball.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/circle.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/ellipse.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/fire.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/laser.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/magnet.h

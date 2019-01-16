@@ -13,11 +13,11 @@ Rectangle Up1, Up2, Down1, Down2;
 Magnet::Magnet(float x, float y) {
     this->x = x;
     this->y = y;
-    Large = Semicircle(x, y, 0.8, 0.0, 0.0, 270, COLOR_RED);
+    Large = Semicircle(x, y, 0.8, 0.0, 0.0, 270, COLOR_TRUERED);
     Small = Semicircle(x, y, 0.4, 0.0, 0.0, 270, COLOR_BACKGROUND);
-    Up2 = Rectangle(x - 0.4, y + 0.4, 0.4, 0.4, 0.0, 0.0, 0.0, COLOR_RED);
+    Up2 = Rectangle(x - 0.4, y + 0.4, 0.4, 0.4, 0.0, 0.0, 0.0, COLOR_TRUERED);
     Up1 = Rectangle(x - 0.8, y + 0.4, 0.4, 0.4, 0.0, 0.0, 0.0, COLOR_GREY);
-    Down2 = Rectangle(x - 0.4, y - 0.8, 0.4, 0.4, 0.0, 0.0, 0.0, COLOR_RED);
+    Down2 = Rectangle(x - 0.4, y - 0.8, 0.4, 0.4, 0.0, 0.0, 0.0, COLOR_TRUERED);
     Down1 = Rectangle(x - 0.8, y - 0.8, 0.4, 0.4, 0.0, 0.0, 0.0, COLOR_GREY);
 }
 

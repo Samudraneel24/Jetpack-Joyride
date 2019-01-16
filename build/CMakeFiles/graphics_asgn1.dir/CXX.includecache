@@ -44,6 +44,20 @@ main.h
 main.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
 
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/ellipse.cpp
+iostream
+-
+fstream
+-
+ellipse.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/ellipse.h
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/ellipse.h
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
+
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/fire.cpp
 iostream
 -
@@ -141,6 +155,8 @@ Lineintersection.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/Lineintersection.h
 magnet.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/magnet.h
+ellipse.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/ellipse.h
 
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
 iostream
