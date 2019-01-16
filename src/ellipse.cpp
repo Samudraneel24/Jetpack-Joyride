@@ -7,6 +7,8 @@ using namespace std;
 
 Ellipse::Ellipse(float x, float y, float a, float b, float speedx, float speedy, color_t color) {
     this->position = glm::vec3(x, y, 0);
+    this->speedx = speedx;
+    this->speedy = speedy;
     const int n = 100;
     GLfloat vertex_buffer_data[9*n] ;
     float angle = ( 2.0*M_PI / float(n));
@@ -51,6 +53,8 @@ void Ellipse::set_position(float x, float y) {
 }
 
 void Ellipse::tick() {
-    this->position.x -= this->speedx;
+    this->position.x += this->speedx;
+    this->position.y += this->speedy;
+    this->speedy -= 0.01;
 }
 

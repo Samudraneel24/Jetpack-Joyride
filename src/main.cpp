@@ -28,7 +28,7 @@ std::vector<Fire> F;
 std::vector<Magnet> M;
 std::vector<Ellipse> Balloon;
 
-int busy = 0, counter = 0, lasercounter = 0, gameover = 0;
+int busy = 0, counter = 0, lasercounter = 0, gameover = 0, ballooncounter = 0;
 int lasercount = 0, firecount = 0;
 
 float screen_zoom = 1, screen_center_x = 0, screen_center_y = 0;
@@ -82,13 +82,15 @@ void draw() {
         F[0].draw(VP);
     if(M.size() == 1)
         M[0].draw(VP);
-    Balloon[0].draw(VP);
+    if(Balloon.size() == 1)
+        Balloon[0].draw(VP);
 }
 
 void tick_input(GLFWwindow *window) {
     int left  = glfwGetKey(window, GLFW_KEY_LEFT);
     int right = glfwGetKey(window, GLFW_KEY_RIGHT);
     int up = glfwGetKey(window, GLFW_KEY_UP);
+    int w = glfwGetKey(window, GLFW_KEY_W);
     if (left) {
         // Do something
         if(Barry.position.x >= 0.0)
@@ -106,18 +108,33 @@ void tick_input(GLFWwindow *window) {
     else if(up){
         Barry.speedy += 0.01;
     }
+    else if(w){
+        if(ballooncounter > 200 && Balloon.size() == 0){
+            Balloon.push_back(Ellipse(Barry.position.x + 0.75, Barry.position.y + 0.5, 0.5, 0.3, 0.15, 0.15, COLOR_BLUE));
+            ballooncounter = 0;
+        }
+    }
 }
 
 void tick_elements() {
-    Balloon[0].tick();
     bounding_box_t Barrybound;
     Barrybound.x = Barry.position.x;
     Barrybound.y = Barry.position.y;
     Barrybound.height = Barry.width;
     Barrybound.width = Barry.len;
-// Enemy
-    counter = (counter + 1)%INT_MAX;
+
+    counter++;
     lasercounter++;
+    ballooncounter++;
+
+// Balloon
+    if(Balloon.size() == 1){
+        Balloon[0].tick();
+        if(Balloon[0].position.y <= -0.5)
+            Balloon.erase(Balloon.begin());
+    }
+
+// Enemy
     if(counter%600 == 0 && busy == 0 && 3*lasercount <= firecount){
         L.push_back(Laser(4.0 + rand()%5));
         lasercount++;
@@ -291,7 +308,6 @@ void initGL(GLFWwindow *window, int width, int height) {
         }
     }
     Barry = Rectangle(2.5, 1.0, 0.5, 1.0, 0.0, 0.0, 0.0, COLOR_BLUE);
-    Balloon.push_back(Ellipse(4.0, 4.0, 2.0, 4.0, 0.0, 0.0, COLOR_BLACK));
 
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");
