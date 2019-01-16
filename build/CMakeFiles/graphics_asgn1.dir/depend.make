@@ -31,11 +31,18 @@ CMakeFiles/graphics_asgn1.dir/src/laser.cpp.o: ../src/main.h
 CMakeFiles/graphics_asgn1.dir/src/laser.cpp.o: ../src/rectangle.h
 CMakeFiles/graphics_asgn1.dir/src/laser.cpp.o: ../src/semicircle.h
 
+CMakeFiles/graphics_asgn1.dir/src/magnet.cpp.o: ../src/magnet.cpp
+CMakeFiles/graphics_asgn1.dir/src/magnet.cpp.o: ../src/magnet.h
+CMakeFiles/graphics_asgn1.dir/src/magnet.cpp.o: ../src/main.h
+CMakeFiles/graphics_asgn1.dir/src/magnet.cpp.o: ../src/rectangle.h
+CMakeFiles/graphics_asgn1.dir/src/magnet.cpp.o: ../src/semicircle.h
+
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/Lineintersection.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/ball.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/circle.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/fire.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/laser.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/magnet.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/main.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/rectangle.h

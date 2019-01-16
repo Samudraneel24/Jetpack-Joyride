@@ -8,6 +8,7 @@
 #include "laser.h"
 #include "fire.h"
 #include "Lineintersection.h"
+#include "magnet.h"
 
 using namespace std;
 
@@ -23,6 +24,8 @@ Rectangle floorarr[20], Barry;
 std::vector<Circle> Coinarr;
 std::vector<Laser> L;
 std::vector<Fire> F;
+std::vector<Magnet> M;
+
 int busy = 0, counter = 0, lasercounter = 0, gameover = 0;
 int lasercount = 0, firecount = 0;
 
@@ -75,6 +78,8 @@ void draw() {
         L[0].draw(VP);
     if(busy == 2)
         F[0].draw(VP);
+    if(M.size() == 1)
+        M[0].draw(VP);
 }
 
 void tick_input(GLFWwindow *window) {
@@ -167,6 +172,46 @@ void tick_elements() {
                 intersect = 1;
             if(intersect == 1)
                 gameover = 1;
+        }
+    }
+
+// Magnet
+    if(counter % 350 == 0 && busy != 1 && M.size() == 0){
+        float x = 6.0 + rand()%8;
+        float y = 2.5 + rand()%6;
+        int flag = 0;
+        if(busy == 2 && F.size() == 1){
+            bounding_box_t Magbound;
+            Magbound.x = x, Magbound.y = y;
+            Magbound.width = 1.6, Magbound.height = 1.6;
+            Point Line_p, Line_q;
+            Point a, b, c, d;
+            Line_p.x = F[0].leftx, Line_p.y = F[0].lefty;
+            Line_q.x = F[0].rightx, Line_q.y = F[0].righty;
+            a.x = Magbound.x, a.y = Magbound.y;
+            b.x = Magbound.x + Magbound.width, b.y = Magbound.y;
+            c.x = Magbound.x, c.y = Magbound.y + Magbound.height;
+            d.x = Magbound.x + Magbound.width, d.y = Magbound.y + Magbound.height;
+            int intersect = 0;
+            if(doIntersect(a, b, Line_p, Line_q))
+                intersect = 1;
+            if(doIntersect(b, c, Line_p, Line_q))
+                intersect = 1;
+            if(doIntersect(c, d, Line_p, Line_q))
+                intersect = 1;
+            if(doIntersect(d, a, Line_p, Line_q))
+                intersect = 1;
+            if(intersect == 1)
+                flag = 1;
+        }
+        if(flag == 0)
+            M.push_back( Magnet(x, y) );
+    }
+
+    if(M.size() == 1){
+        M[0].tick(floorarr[0].speedx, floorarr[0].speedy);
+        if(M[0].x < -2.0){
+            M.erase(M.begin());
         }
     }
 

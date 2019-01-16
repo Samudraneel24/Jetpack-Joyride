@@ -61,5 +61,7 @@ void Semicircle::tick() {
         this->position.y = 1.0;
         speedy = 0.0;
     }
+    this->position.x -= speedx;
+    
 }
 
