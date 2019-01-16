@@ -52,6 +52,6 @@ void Circle::set_position(float x, float y) {
 }
 
 void Circle::tick() {
-    this->position.x -= speedx;
+    this->position.x -= this->speedx;
 }
 
