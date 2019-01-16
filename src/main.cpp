@@ -7,6 +7,7 @@
 #include "rectangle.h"
 #include "laser.h"
 #include "fire.h"
+#include "Lineintersection.h"
 
 using namespace std;
 
@@ -145,6 +146,27 @@ void tick_elements() {
         if(F[0].rightx < -1.0){
             F.erase(F.begin());
             busy = 0;
+        }
+        if(F.size() > 0){
+            Point Line_p, Line_q;
+            Point a, b, c, d;
+            Line_p.x = F[0].leftx, Line_p.y = F[0].lefty;
+            Line_q.x = F[0].rightx, Line_q.y = F[0].righty;
+            a.x = Barrybound.x, a.y = Barrybound.y;
+            b.x = Barrybound.x + Barrybound.width, b.y = Barrybound.y;
+            c.x = Barrybound.x, c.y = Barrybound.y + Barrybound.height;
+            d.x = Barrybound.x + Barrybound.width, d.y = Barrybound.y + Barrybound.height;
+            int intersect = 0;
+            if(doIntersect(a, b, Line_p, Line_q))
+                intersect = 1;
+            if(doIntersect(b, c, Line_p, Line_q))
+                intersect = 1;
+            if(doIntersect(c, d, Line_p, Line_q))
+                intersect = 1;
+            if(doIntersect(d, a, Line_p, Line_q))
+                intersect = 1;
+            if(intersect == 1)
+                gameover = 1;
         }
     }
 

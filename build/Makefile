@@ -123,6 +123,33 @@ graphics_asgn1/fast:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/build
 .PHONY : graphics_asgn1/fast
 
+src/Lineintersection.o: src/Lineintersection.cpp.o
+
+.PHONY : src/Lineintersection.o
+
+# target to build an object file
+src/Lineintersection.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/Lineintersection.cpp.o
+.PHONY : src/Lineintersection.cpp.o
+
+src/Lineintersection.i: src/Lineintersection.cpp.i
+
+.PHONY : src/Lineintersection.i
+
+# target to preprocess a source file
+src/Lineintersection.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/Lineintersection.cpp.i
+.PHONY : src/Lineintersection.cpp.i
+
+src/Lineintersection.s: src/Lineintersection.cpp.s
+
+.PHONY : src/Lineintersection.s
+
+# target to generate assembly for a file
+src/Lineintersection.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/Lineintersection.cpp.s
+.PHONY : src/Lineintersection.cpp.s
+
 src/ball.o: src/ball.cpp.o
 
 .PHONY : src/ball.o
@@ -456,6 +483,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... graphics_asgn1"
 	@echo "... edit_cache"
+	@echo "... src/Lineintersection.o"
+	@echo "... src/Lineintersection.i"
+	@echo "... src/Lineintersection.s"
 	@echo "... src/ball.o"
 	@echo "... src/ball.i"
 	@echo "... src/ball.s"

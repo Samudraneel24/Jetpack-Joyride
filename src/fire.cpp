@@ -39,5 +39,8 @@ void Fire::tick(float speedx, float speedy) {
     S1.speedx = speedx, S1.speedy = speedy;
     S2.speedx = speedx, S2.speedy = speedy;
     R.speedx = speedx, R.speedy = speedy;
-    this->rightx = S2.position.x + S2.radius;
+    this->rightx = S2.position.x;
+    this->leftx = S1.position.x;
+    this->lefty = S1.position.y;
+    this->righty = S2.position.y;
 }
