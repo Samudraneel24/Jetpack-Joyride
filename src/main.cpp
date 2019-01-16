@@ -210,6 +210,14 @@ void tick_elements() {
 
     if(M.size() == 1){
         M[0].tick(floorarr[0].speedx, floorarr[0].speedy);
+        if(M[0].x < Barry.position.x)
+            Barry.position.x -= 0.1;
+        else if(M[0].x > Barry.position.x)
+            Barry.position.x += 0.15;
+        if(M[0].y < Barry.position.y)
+            Barry.position.y -= 0.15;
+        else if(M[0].y > Barry.position.y)
+            Barry.position.y += 0.15;
         if(M[0].x < -2.0){
             M.erase(M.begin());
         }
