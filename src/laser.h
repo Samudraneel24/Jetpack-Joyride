@@ -9,7 +9,7 @@ public:
     Laser() {}
     Laser(float y);
     void draw(glm::mat4 VP);
-    void tick(int lasercounter);
+    void tick(int lasercounter, float sign);
     float left, right, y;
     int on;
 private:

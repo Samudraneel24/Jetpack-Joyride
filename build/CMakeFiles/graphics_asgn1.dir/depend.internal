@@ -12,6 +12,12 @@ CMakeFiles/graphics_asgn1.dir/src/circle.cpp.o
 CMakeFiles/graphics_asgn1.dir/src/color.cpp.o
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/color.cpp
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
+CMakeFiles/graphics_asgn1.dir/src/fire.cpp.o
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/circle.h
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/fire.cpp
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/fire.h
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.h
 CMakeFiles/graphics_asgn1.dir/src/input.cpp.o
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/input.cpp
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
@@ -24,6 +30,7 @@ CMakeFiles/graphics_asgn1.dir/src/laser.cpp.o
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/ball.h
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/circle.h
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/fire.h
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/laser.h
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.cpp
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h

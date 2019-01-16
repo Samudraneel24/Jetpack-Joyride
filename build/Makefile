@@ -204,6 +204,33 @@ src/color.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/color.cpp.s
 .PHONY : src/color.cpp.s
 
+src/fire.o: src/fire.cpp.o
+
+.PHONY : src/fire.o
+
+# target to build an object file
+src/fire.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/fire.cpp.o
+.PHONY : src/fire.cpp.o
+
+src/fire.i: src/fire.cpp.i
+
+.PHONY : src/fire.i
+
+# target to preprocess a source file
+src/fire.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/fire.cpp.i
+.PHONY : src/fire.cpp.i
+
+src/fire.s: src/fire.cpp.s
+
+.PHONY : src/fire.s
+
+# target to generate assembly for a file
+src/fire.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/fire.cpp.s
+.PHONY : src/fire.cpp.s
+
 src/input.o: src/input.cpp.o
 
 .PHONY : src/input.o
@@ -438,6 +465,9 @@ help:
 	@echo "... src/color.o"
 	@echo "... src/color.i"
 	@echo "... src/color.s"
+	@echo "... src/fire.o"
+	@echo "... src/fire.i"
+	@echo "... src/fire.s"
 	@echo "... src/input.o"
 	@echo "... src/input.i"
 	@echo "... src/input.s"

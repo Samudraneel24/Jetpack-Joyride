@@ -34,6 +34,24 @@ main.h
 main.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
 
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/fire.cpp
+iostream
+-
+fstream
+-
+fire.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/fire.h
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
+circle.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/circle.h
+rectangle.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.h
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/fire.h
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
+
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/input.cpp
 iostream
 -
@@ -89,6 +107,8 @@ rectangle.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.h
 laser.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/laser.h
+fire.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/fire.h
 
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
 iostream

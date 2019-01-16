@@ -31,23 +31,24 @@ void Laser::draw(glm::mat4 VP) {
 	right_sem.draw(VP);
 }
 
-void Laser::tick(int lasercounter) {
+void Laser::tick(int lasercounter, float sign) {
 	left_sem.tick();
     left_rect.tick();
     beam.tick();
     right_rect.tick();
     right_sem.tick();
-    if(lasercounter == 100)
+    if(lasercounter == 75)
     	this->on = 1;
-    else if(lasercounter == 400){
+    else if(lasercounter == 250){
     	this->on = 0;
-    	left_sem.speedy = -0.01;
-    	right_sem.speedy = -0.01;
-    	left_rect.speedy = -0.01;
-    	right_rect.speedy = -0.01;
+    	left_sem.speedy = sign*0.03;
+    	right_sem.speedy = sign*0.03;
+    	left_rect.speedy = sign*0.03;
+    	right_rect.speedy = sign*0.03;
     }
-    else if(lasercounter == 500){
+    else if(lasercounter == 325){
     	this->on = 1;
+    	this->y = left_rect.position.y;
     	beam.position.y = left_rect.position.y;
     	left_sem.speedy = 0;
     	right_sem.speedy = 0;

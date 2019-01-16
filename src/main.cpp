@@ -6,6 +6,7 @@
 #include "semicircle.h"
 #include "rectangle.h"
 #include "laser.h"
+#include "fire.h"
 
 using namespace std;
 
@@ -20,7 +21,9 @@ GLFWwindow *window;
 Rectangle floorarr[20], Barry;
 std::vector<Circle> Coinarr;
 std::vector<Laser> L;
+std::vector<Fire> F;
 int busy = 0, counter = 0, lasercounter = 0, gameover = 0;
+int lasercount = 0, firecount = 0;
 
 float screen_zoom = 1, screen_center_x = 0, screen_center_y = 0;
 float camera_rotation_angle = 0;
@@ -67,9 +70,10 @@ void draw() {
     Barry.draw(VP);
     for(int i=0;i<Coinarr.size();i++)
         Coinarr[i].draw(VP);
-    if(busy == 1){
+    if(busy == 1)
         L[0].draw(VP);
-    }
+    if(busy == 2)
+        F[0].draw(VP);
 }
 
 void tick_input(GLFWwindow *window) {
@@ -104,17 +108,21 @@ void tick_elements() {
 // Enemy
     counter = (counter + 1)%INT_MAX;
     lasercounter++;
-    if(counter%1000 == 0 && busy == 0){
-        L.push_back(Laser(3.0 + rand()%5));
+    if(counter%600 == 0 && busy == 0 && 3*lasercount <= firecount){
+        L.push_back(Laser(4.0 + rand()%5));
+        lasercount++;
         busy = 1;
         lasercounter = 0;
     }
-    else if(lasercounter == 800 && busy == 1){
+    else if(lasercounter == 500 && busy == 1){
         L.erase(L.begin());
         busy = 0;
     }
     if(busy == 1){
-        L[0].tick(lasercounter);
+        if(L[0].y > Barry.position.y)
+            L[0].tick(lasercounter, -1.0);
+        else
+            L[0].tick(lasercounter, 1.0);
         bounding_box_t Laserbound;
         Laserbound.x = L[0].left + 0.8;
         Laserbound.y = L[0].y;
@@ -122,6 +130,22 @@ void tick_elements() {
         Laserbound.width = 9.7;
         if(L[0].on == 1 && detect_collision(Laserbound, Barrybound))
             gameover = 1;
+    }
+    if(counter%100 == 0 && busy == 0 && firecount <= 3*lasercount){
+        float lefty = 1.5 + rand()%3;
+        float leftx = 12.0 + rand()%3;
+        float rightx = leftx + 1 + rand()%4;
+        float righty = lefty + 1 + rand()%4;
+        F.push_back(Fire(leftx, lefty, rightx, righty, floorarr[0].speedx, floorarr[0].speedy));
+        firecount++;
+        busy = 2;
+    }
+    if(busy == 2){
+        F[0].tick(floorarr[0].speedx, floorarr[0].speedy);
+        if(F[0].rightx < -1.0){
+            F.erase(F.begin());
+            busy = 0;
+        }
     }
 
 // Floor
@@ -161,8 +185,8 @@ void tick_elements() {
         }
     }
     for(int i=0;i<Coinarr.size();i++){
-        Coinarr[i].tick();
         Coinarr[i].speedx = floorarr[0].speedx;
+        Coinarr[i].tick();
         if(Coinarr[i].position.x <= -1.0){
             Coinarr.erase(Coinarr.begin() + i);
             i--;

@@ -1,6 +1,7 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include "main.h"
 
+const color_t COLOR_YELLOW = {255, 255, 0};
 const color_t COLOR_ORANGE = {253, 106, 2};
 const color_t COLOR_GREY = {100, 100, 100};
 const color_t COLOR_RED = { 236, 100, 75 };
