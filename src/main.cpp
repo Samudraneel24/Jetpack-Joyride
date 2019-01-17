@@ -130,7 +130,9 @@ void tick_elements() {
 // Balloon
     if(Balloon.size() == 1){
         Balloon[0].tick();
-        if(Balloon[0].position.y <= -0.5)
+
+
+        if(Balloon[0].position.y <= 1.3)
             Balloon.erase(Balloon.begin());
     }
 
@@ -157,6 +159,31 @@ void tick_elements() {
         Laserbound.width = 9.7;
         if(L[0].on == 1 && detect_collision(Laserbound, Barrybound))
             gameover = 1;
+        if(Balloon.size() == 1){
+            Point Line_p, Line_q;
+            Point a, b, c, d;
+            Line_p.x = L[0].left + 0.8, Line_p.y = L[0].y;
+            Line_q.x = L[0].left + 9.7, Line_q.y = L[0].y;
+            a.x = Balloon[0].position.x - 0.5, a.y = Balloon[0].position.y - 0.3;
+            b.x = Balloon[0].position.x + 0.5, b.y = Balloon[0].position.y - 0.3;
+            c.x = Balloon[0].position.x + 0.5, c.y = Balloon[0].position.y + 0.3;
+            d.x = Balloon[0].position.x - 0.5, d.y = Balloon[0].position.y + 0.3;
+            int intersect = 0;
+            if(doIntersect(a, b, Line_p, Line_q))
+                intersect = 1;
+            if(doIntersect(b, c, Line_p, Line_q))
+                intersect = 1;
+            if(doIntersect(c, d, Line_p, Line_q))
+                intersect = 1;
+            if(doIntersect(d, a, Line_p, Line_q))
+                intersect = 1;
+            if(intersect == 1){
+                Balloon.erase(Balloon.begin());
+                L.erase(L.begin());
+                busy = 0;
+            }
+        }
+
     }
     if(counter%100 == 0 && busy == 0 && firecount <= 3*lasercount){
         float lefty = 1.5 + rand()%3;
@@ -193,6 +220,27 @@ void tick_elements() {
                 intersect = 1;
             if(intersect == 1)
                 gameover = 1;
+
+            if(Balloon.size() == 1){
+                a.x = Balloon[0].position.x - 0.5, a.y = Balloon[0].position.y - 0.3;
+                b.x = Balloon[0].position.x + 0.5, b.y = Balloon[0].position.y - 0.3;
+                c.x = Balloon[0].position.x + 0.5, c.y = Balloon[0].position.y + 0.3;
+                d.x = Balloon[0].position.x - 0.5, d.y = Balloon[0].position.y + 0.3;
+                intersect = 0;
+                if(doIntersect(a, b, Line_p, Line_q))
+                    intersect = 1;
+                if(doIntersect(b, c, Line_p, Line_q))
+                    intersect = 1;
+                if(doIntersect(c, d, Line_p, Line_q))
+                    intersect = 1;
+                if(doIntersect(d, a, Line_p, Line_q))
+                    intersect = 1;
+                if(intersect == 1){
+                    Balloon.erase(Balloon.begin());
+                    F.erase(F.begin());
+                    busy = 0;
+                }
+            }
         }
     }
 
