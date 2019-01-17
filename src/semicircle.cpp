@@ -54,10 +54,10 @@ void Semicircle::set_position(float x, float y) {
 }
 
 void Semicircle::tick() {
-    if(this->position.y+speedy >= 1.0 && this->position.y+speedy <= 7.2){
+    if(this->position.y+speedy - this->radius >= 1.0 && this->position.y+speedy + this->radius <= 8.0){
         this->position.y += speedy;
     }
-    if(this->position.y > 1.0 && this->position.y + speedy < 1.0){
+    if(this->position.y - this->radius > 1.0 && this->position.y + speedy - this->radius< 1.0){
         this->position.y = 1.0;
         speedy = 0.0;
     }

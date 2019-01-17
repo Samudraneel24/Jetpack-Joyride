@@ -117,6 +117,7 @@ void tick_input(GLFWwindow *window) {
 }
 
 void tick_elements() {
+    // cout<<Barry.position.y<<" "<<Barry.speedy<<endl;
     bounding_box_t Barrybound;
     Barrybound.x = Barry.position.x;
     Barrybound.y = Barry.position.y;
