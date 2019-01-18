@@ -312,6 +312,33 @@ src/input.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/input.cpp.s
 .PHONY : src/input.cpp.s
 
+src/jump.o: src/jump.cpp.o
+
+.PHONY : src/jump.o
+
+# target to build an object file
+src/jump.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/jump.cpp.o
+.PHONY : src/jump.cpp.o
+
+src/jump.i: src/jump.cpp.i
+
+.PHONY : src/jump.i
+
+# target to preprocess a source file
+src/jump.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/jump.cpp.i
+.PHONY : src/jump.cpp.i
+
+src/jump.s: src/jump.cpp.s
+
+.PHONY : src/jump.s
+
+# target to generate assembly for a file
+src/jump.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/jump.cpp.s
+.PHONY : src/jump.cpp.s
+
 src/laser.o: src/laser.cpp.o
 
 .PHONY : src/laser.o
@@ -558,6 +585,9 @@ help:
 	@echo "... src/input.o"
 	@echo "... src/input.i"
 	@echo "... src/input.s"
+	@echo "... src/jump.o"
+	@echo "... src/jump.i"
+	@echo "... src/jump.s"
 	@echo "... src/laser.o"
 	@echo "... src/laser.i"
 	@echo "... src/laser.s"

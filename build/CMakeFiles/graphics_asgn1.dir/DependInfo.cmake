@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/ellipse.cpp" "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles/graphics_asgn1.dir/src/ellipse.cpp.o"
   "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/fire.cpp" "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles/graphics_asgn1.dir/src/fire.cpp.o"
   "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/input.cpp" "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles/graphics_asgn1.dir/src/input.cpp.o"
+  "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/jump.cpp" "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles/graphics_asgn1.dir/src/jump.cpp.o"
   "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/laser.cpp" "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles/graphics_asgn1.dir/src/laser.cpp.o"
   "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/magnet.cpp" "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles/graphics_asgn1.dir/src/magnet.cpp.o"
   "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.cpp" "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles/graphics_asgn1.dir/src/main.cpp.o"

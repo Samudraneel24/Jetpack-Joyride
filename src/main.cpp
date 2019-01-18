@@ -10,6 +10,7 @@
 #include "Lineintersection.h"
 #include "magnet.h"
 #include "ellipse.h"
+#include "jump.h"
 
 using namespace std;
 
@@ -27,6 +28,8 @@ std::vector<Laser> L;
 std::vector<Fire> F;
 std::vector<Magnet> M;
 std::vector<Ellipse> Balloon;
+std::vector<Jump> J;
+// Circle Ci;
 
 int busy = 0, counter = 0, lasercounter = 0, gameover = 0, ballooncounter = 0;
 int lasercount = 0, firecount = 0;
@@ -84,6 +87,9 @@ void draw() {
         M[0].draw(VP);
     if(Balloon.size() == 1)
         Balloon[0].draw(VP);
+    if(J.size() == 1)
+        J[0].draw(VP);
+    // Ci.draw(VP);
 }
 
 void tick_input(GLFWwindow *window) {
@@ -117,6 +123,7 @@ void tick_input(GLFWwindow *window) {
 }
 
 void tick_elements() {
+    // Ci.tick();
     // cout<<Barry.position.y<<" "<<Barry.speedy<<endl;
     bounding_box_t Barrybound;
     Barrybound.x = Barry.position.x;
@@ -127,6 +134,16 @@ void tick_elements() {
     counter++;
     lasercounter++;
     ballooncounter++;
+
+
+    if(J.size() == 1){
+        J[0].tick();
+    }
+    if(J.size() == 0 && counter%1000 == 0){
+        cout<<1<<endl;
+        float y = 3.0 + rand()%5;
+        J.push_back(Jump(y));
+    }
 
 // Balloon
     if(Balloon.size() == 1){
@@ -357,7 +374,8 @@ void initGL(GLFWwindow *window, int width, int height) {
         }
     }
     Barry = Rectangle(2.5, 1.0, 0.5, 1.0, 0.0, 0.0, 0.0, COLOR_BLUE);
-
+    // Ci = Circle(4.0, 4.0, 1.0, 0.0, 0.0, COLOR_BLACK);
+    // J.push_back(Jump(4.0));
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");
     // Get a handle for our "MVP" uniform

@@ -29,6 +29,11 @@ CMakeFiles/graphics_asgn1.dir/src/fire.cpp.o: ../src/rectangle.h
 CMakeFiles/graphics_asgn1.dir/src/input.cpp.o: ../src/input.cpp
 CMakeFiles/graphics_asgn1.dir/src/input.cpp.o: ../src/main.h
 
+CMakeFiles/graphics_asgn1.dir/src/jump.cpp.o: ../src/circle.h
+CMakeFiles/graphics_asgn1.dir/src/jump.cpp.o: ../src/jump.cpp
+CMakeFiles/graphics_asgn1.dir/src/jump.cpp.o: ../src/jump.h
+CMakeFiles/graphics_asgn1.dir/src/jump.cpp.o: ../src/main.h
+
 CMakeFiles/graphics_asgn1.dir/src/laser.cpp.o: ../src/laser.cpp
 CMakeFiles/graphics_asgn1.dir/src/laser.cpp.o: ../src/laser.h
 CMakeFiles/graphics_asgn1.dir/src/laser.cpp.o: ../src/main.h
@@ -46,6 +51,7 @@ CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/ball.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/circle.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/ellipse.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/fire.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/jump.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/laser.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/magnet.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/main.cpp

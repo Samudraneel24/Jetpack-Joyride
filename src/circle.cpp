@@ -7,6 +7,9 @@ using namespace std;
 
 Circle::Circle(float x, float y, float radius, float speedx, float speedy, color_t color) {
     this->position = glm::vec3(x, y, 0);
+    this->speedx = speedx;
+    this->speedy = speedy;
+    this->radius = radius;
     const int n = 100;
     GLfloat vertex_buffer_data[9*n] ;
     float r = radius;
