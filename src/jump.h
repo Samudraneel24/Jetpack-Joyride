@@ -10,7 +10,7 @@ public:
     Jump() {}
     Jump(float y);
     void draw(glm::mat4 VP);
-    void tick();
+    int tick(float speedx);
     float x, y, radius, speedx, speedy;
     Circle C;
 private:

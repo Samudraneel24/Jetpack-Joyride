@@ -137,7 +137,9 @@ void tick_elements() {
 
 
     if(J.size() == 1){
-        J[0].tick();
+        int destroy = J[0].tick(floorarr[0].speedx);
+        if(destroy == 1)
+            J.erase(J.begin());
     }
     if(J.size() == 0 && counter%1000 == 0){
         cout<<1<<endl;
