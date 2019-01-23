@@ -501,6 +501,33 @@ src/rectangle.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/rectangle.cpp.s
 .PHONY : src/rectangle.cpp.s
 
+src/score.o: src/score.cpp.o
+
+.PHONY : src/score.o
+
+# target to build an object file
+src/score.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/score.cpp.o
+.PHONY : src/score.cpp.o
+
+src/score.i: src/score.cpp.i
+
+.PHONY : src/score.i
+
+# target to preprocess a source file
+src/score.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/score.cpp.i
+.PHONY : src/score.cpp.i
+
+src/score.s: src/score.cpp.s
+
+.PHONY : src/score.s
+
+# target to generate assembly for a file
+src/score.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/score.cpp.s
+.PHONY : src/score.cpp.s
+
 src/semicircle.o: src/semicircle.cpp.o
 
 .PHONY : src/semicircle.o
@@ -527,6 +554,33 @@ src/semicircle.s: src/semicircle.cpp.s
 src/semicircle.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/semicircle.cpp.s
 .PHONY : src/semicircle.cpp.s
+
+src/sevenseg.o: src/sevenseg.cpp.o
+
+.PHONY : src/sevenseg.o
+
+# target to build an object file
+src/sevenseg.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o
+.PHONY : src/sevenseg.cpp.o
+
+src/sevenseg.i: src/sevenseg.cpp.i
+
+.PHONY : src/sevenseg.i
+
+# target to preprocess a source file
+src/sevenseg.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.i
+.PHONY : src/sevenseg.cpp.i
+
+src/sevenseg.s: src/sevenseg.cpp.s
+
+.PHONY : src/sevenseg.s
+
+# target to generate assembly for a file
+src/sevenseg.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.s
+.PHONY : src/sevenseg.cpp.s
 
 src/timer.o: src/timer.cpp.o
 
@@ -606,9 +660,15 @@ help:
 	@echo "... src/rectangle.o"
 	@echo "... src/rectangle.i"
 	@echo "... src/rectangle.s"
+	@echo "... src/score.o"
+	@echo "... src/score.i"
+	@echo "... src/score.s"
 	@echo "... src/semicircle.o"
 	@echo "... src/semicircle.i"
 	@echo "... src/semicircle.s"
+	@echo "... src/sevenseg.o"
+	@echo "... src/sevenseg.i"
+	@echo "... src/sevenseg.s"
 	@echo "... src/timer.o"
 	@echo "... src/timer.i"
 	@echo "... src/timer.s"

@@ -58,7 +58,9 @@ CMakeFiles/graphics_asgn1.dir/src/main.cpp.o
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.cpp
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.h
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/score.h
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/semicircle.h
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/sevenseg.h
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/timer.h
 CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
@@ -70,10 +72,21 @@ CMakeFiles/graphics_asgn1.dir/src/rectangle.cpp.o
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.cpp
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.h
+CMakeFiles/graphics_asgn1.dir/src/score.cpp.o
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.h
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/score.cpp
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/score.h
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/sevenseg.h
 CMakeFiles/graphics_asgn1.dir/src/semicircle.cpp.o
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/semicircle.cpp
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/semicircle.h
+CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.h
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/sevenseg.cpp
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/sevenseg.h
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/timer.cpp
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/timer.h

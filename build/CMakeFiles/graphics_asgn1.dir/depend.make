@@ -57,7 +57,9 @@ CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/magnet.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/main.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/rectangle.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/score.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/semicircle.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/sevenseg.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/timer.h
 
 CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o: ../src/main.h
@@ -70,9 +72,20 @@ CMakeFiles/graphics_asgn1.dir/src/rectangle.cpp.o: ../src/main.h
 CMakeFiles/graphics_asgn1.dir/src/rectangle.cpp.o: ../src/rectangle.cpp
 CMakeFiles/graphics_asgn1.dir/src/rectangle.cpp.o: ../src/rectangle.h
 
+CMakeFiles/graphics_asgn1.dir/src/score.cpp.o: ../src/main.h
+CMakeFiles/graphics_asgn1.dir/src/score.cpp.o: ../src/rectangle.h
+CMakeFiles/graphics_asgn1.dir/src/score.cpp.o: ../src/score.cpp
+CMakeFiles/graphics_asgn1.dir/src/score.cpp.o: ../src/score.h
+CMakeFiles/graphics_asgn1.dir/src/score.cpp.o: ../src/sevenseg.h
+
 CMakeFiles/graphics_asgn1.dir/src/semicircle.cpp.o: ../src/main.h
 CMakeFiles/graphics_asgn1.dir/src/semicircle.cpp.o: ../src/semicircle.cpp
 CMakeFiles/graphics_asgn1.dir/src/semicircle.cpp.o: ../src/semicircle.h
+
+CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o: ../src/main.h
+CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o: ../src/rectangle.h
+CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o: ../src/sevenseg.cpp
+CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o: ../src/sevenseg.h
 
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o: ../src/timer.cpp
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o: ../src/timer.h

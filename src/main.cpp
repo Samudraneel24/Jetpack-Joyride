@@ -11,6 +11,7 @@
 #include "magnet.h"
 #include "ellipse.h"
 #include "jump.h"
+#include "score.h"
 
 using namespace std;
 
@@ -29,10 +30,13 @@ std::vector<Fire> F;
 std::vector<Magnet> M;
 std::vector<Ellipse> Balloon;
 std::vector<Jump> J;
+Score Sc;
 // Circle Ci;
 
 int busy = 0, counter = 0, lasercounter = 0, gameover = 0, ballooncounter = 0;
 int lasercount = 0, firecount = 0;
+int jump = 0, jumpduration = 0;
+int points = 0;
 
 float screen_zoom = 1, screen_center_x = 0, screen_center_y = 0;
 float camera_rotation_angle = 0;
@@ -89,7 +93,7 @@ void draw() {
         Balloon[0].draw(VP);
     if(J.size() == 1)
         J[0].draw(VP);
-    // Ci.draw(VP);
+    // Sc.draw(VP);
 }
 
 void tick_input(GLFWwindow *window) {
@@ -123,8 +127,6 @@ void tick_input(GLFWwindow *window) {
 }
 
 void tick_elements() {
-    // Ci.tick();
-    // cout<<Barry.position.y<<" "<<Barry.speedy<<endl;
     bounding_box_t Barrybound;
     Barrybound.x = Barry.position.x;
     Barrybound.y = Barry.position.y;
@@ -135,18 +137,30 @@ void tick_elements() {
     lasercounter++;
     ballooncounter++;
 
+    // Sc.tick(floorarr[0].speedx, points);
+
 
     if(J.size() == 1){
-        int destroy = J[0].tick(floorarr[0].speedx);
+        bounding_box_t Ballbound;
+        Ballbound.x = J[0].C.position.x - J[0].radius;
+        Ballbound.y = J[0].y - J[0].radius;
+        Ballbound.height = Ballbound.width = 2.0*J[0].radius;
+        int destroy;
+        if(detect_collision(Ballbound, Barrybound)){
+            jumpduration = 0;
+            jump = 1;
+            destroy = 1;
+        }
+        if(destroy == 0)
+            destroy = J[0].tick(floorarr[0].speedx);
         if(destroy == 1)
             J.erase(J.begin());
     }
     if(J.size() == 0 && counter%1000 == 0){
-        cout<<1<<endl;
         float y = 3.0 + rand()%5;
         J.push_back(Jump(y));
     }
-
+ 
 // Balloon
     if(Balloon.size() == 1){
         Balloon[0].tick();
@@ -317,8 +331,10 @@ void tick_elements() {
         floorarr[i].tick();
         if(floorarr[i].position.x < -1)
             floorarr[i].position.x += 20;
-        if(floorarr[i].speedx > 0.08)
+        if(jump == 0 && floorarr[i].speedx > 0.08)
             floorarr[i].speedx -= 0.02;
+        if(jump == 1)
+            floorarr[i].speedx = 0.25;
     }
 
 // Barry
@@ -344,6 +360,7 @@ void tick_elements() {
         Coinbound.height = 0.4;
         Coinbound.width = 0.4;
         if(detect_collision(Coinbound, Barrybound)){
+            points += 10;
             Coinarr.erase(Coinarr.begin() + i);
             i--;
         }
@@ -356,6 +373,7 @@ void tick_elements() {
             i--;
         }
     }
+
     // camera_rotation_angle += 1;
 }
 
@@ -376,6 +394,7 @@ void initGL(GLFWwindow *window, int width, int height) {
         }
     }
     Barry = Rectangle(2.5, 1.0, 0.5, 1.0, 0.0, 0.0, 0.0, COLOR_BLUE);
+    // Sc = Score(9.0, 7.5);
     // Ci = Circle(4.0, 4.0, 1.0, 0.0, 0.0, COLOR_BLACK);
     // J.push_back(Jump(4.0));
     // Create and compile our GLSL program from the shaders
