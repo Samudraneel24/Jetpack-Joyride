@@ -36,7 +36,7 @@ Score Sc;
 int busy = 0, counter = 0, lasercounter = 0, gameover = 0, ballooncounter = 0;
 int lasercount = 0, firecount = 0;
 int jump = 0, jumpduration = 0;
-int points = 0;
+int points = 0, prevpoints = -1;
 
 float screen_zoom = 1, screen_center_x = 0, screen_center_y = 0;
 float camera_rotation_angle = 0;
@@ -93,7 +93,7 @@ void draw() {
         Balloon[0].draw(VP);
     if(J.size() == 1)
         J[0].draw(VP);
-    // Sc.draw(VP);
+    Sc.draw(VP);
 }
 
 void tick_input(GLFWwindow *window) {
@@ -136,16 +136,21 @@ void tick_elements() {
     counter++;
     lasercounter++;
     ballooncounter++;
+    jumpduration++;
 
-    // Sc.tick(floorarr[0].speedx, points);
+    if(points != prevpoints){
+        Sc.tick(floorarr[0].speedx, points);
+        prevpoints = points;
+    }
 
-
+    if(jump == 1 && jumpduration == 300)
+        jump = 0;
     if(J.size() == 1){
         bounding_box_t Ballbound;
         Ballbound.x = J[0].C.position.x - J[0].radius;
         Ballbound.y = J[0].y - J[0].radius;
         Ballbound.height = Ballbound.width = 2.0*J[0].radius;
-        int destroy;
+        int destroy = 0;
         if(detect_collision(Ballbound, Barrybound)){
             jumpduration = 0;
             jump = 1;
@@ -156,7 +161,7 @@ void tick_elements() {
         if(destroy == 1)
             J.erase(J.begin());
     }
-    if(J.size() == 0 && counter%1000 == 0){
+    if(J.size() == 0 && counter%2000 == 0){
         float y = 3.0 + rand()%5;
         J.push_back(Jump(y));
     }
@@ -191,7 +196,7 @@ void tick_elements() {
         Laserbound.y = L[0].y;
         Laserbound.height = 0.4;
         Laserbound.width = 9.7;
-        if(L[0].on == 1 && detect_collision(Laserbound, Barrybound))
+        if(jump == 0 && L[0].on == 1 && detect_collision(Laserbound, Barrybound))
             gameover = 1;
         if(Balloon.size() == 1){
             Point Line_p, Line_q;
@@ -234,7 +239,7 @@ void tick_elements() {
             F.erase(F.begin());
             busy = 0;
         }
-        if(F.size() > 0){
+        if(jump == 0 && F.size() > 0){
             Point Line_p, Line_q;
             Point a, b, c, d;
             Line_p.x = F[0].leftx, Line_p.y = F[0].lefty;
@@ -334,7 +339,7 @@ void tick_elements() {
         if(jump == 0 && floorarr[i].speedx > 0.08)
             floorarr[i].speedx -= 0.02;
         if(jump == 1)
-            floorarr[i].speedx = 0.25;
+            floorarr[i].speedx = 0.5;
     }
 
 // Barry
@@ -394,7 +399,7 @@ void initGL(GLFWwindow *window, int width, int height) {
         }
     }
     Barry = Rectangle(2.5, 1.0, 0.5, 1.0, 0.0, 0.0, 0.0, COLOR_BLUE);
-    // Sc = Score(9.0, 7.5);
+    Sc = Score(9.0, 7.5);
     // Ci = Circle(4.0, 4.0, 1.0, 0.0, 0.0, COLOR_BLACK);
     // J.push_back(Jump(4.0));
     // Create and compile our GLSL program from the shaders

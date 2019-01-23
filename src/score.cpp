@@ -50,16 +50,4 @@ void Score::tick(float speedx, int score) {
     this->Character[9].tick(speedx, c[2]); 
     this->Character[10].tick(speedx, c[1]); 
     this->Character[11].tick(speedx, c[0]); 
-    // this->Character[0] = SevenSeg(this->x, this->y, 's');
-    // this->Character[1] = SevenSeg(this->x + 0.3, this->y, 'c');
-    // this->Character[2] = SevenSeg(this->x + 0.6, this->y, 'o');
-    // this->Character[3] = SevenSeg(this->x + 0.9, this->y, 'r');
-    // this->Character[4] = SevenSeg(this->x + 1.2, this->y, 'e');
-    // this->Character[5] = SevenSeg(this->x + 1.5, this->y, '-');
-    // this->Character[6] = SevenSeg(this->x + 1.8, this->y, c[5]);
-    // this->Character[7] = SevenSeg(this->x + 2.1, this->y, c[4]);
-    // this->Character[8] = SevenSeg(this->x + 2.4, this->y, c[3]);
-    // this->Character[9] = SevenSeg(this->x + 2.7, this->y, c[2]);
-    // this->Character[10] = SevenSeg(this->x + 3.0, this->y, c[1]);
-    // this->Character[11] = SevenSeg(this->x + 3.3, this->y, c[0]);
 }
