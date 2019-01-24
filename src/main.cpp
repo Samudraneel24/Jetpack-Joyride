@@ -12,6 +12,7 @@
 #include "ellipse.h"
 #include "jump.h"
 #include "score.h"
+#include "boomerang.h"
 
 using namespace std;
 
@@ -31,6 +32,7 @@ std::vector<Magnet> M;
 std::vector<Ellipse> Balloon;
 std::vector<Jump> J;
 Score Sc;
+std::vector<Boomerang> Boom;
 // Circle Ci;
 
 int busy = 0, counter = 0, lasercounter = 0, gameover = 0, ballooncounter = 0;
@@ -94,6 +96,8 @@ void draw() {
     if(J.size() == 1)
         J[0].draw(VP);
     Sc.draw(VP);
+    if(Boom.size() == 1)
+        Boom[0].draw(VP);
 }
 
 void tick_input(GLFWwindow *window) {
@@ -138,11 +142,30 @@ void tick_elements() {
     ballooncounter++;
     jumpduration++;
 
+// Score
     if(points != prevpoints){
         Sc.tick(floorarr[0].speedx, points);
         prevpoints = points;
     }
 
+// Boomerang
+    if(Boom.size() == 0 && counter%780 == 0)
+        Boom.push_back(Boomerang(16.0, 9.3));
+    if(Boom.size() == 1){
+        int destroy = 0;
+        destroy = Boom[0].tick(floorarr[0].speedx);
+        if(destroy == 1)
+            Boom.erase(Boom.begin());
+        bounding_box_t Boombound;
+        Boombound.x = Boom[0].x, Boombound.y = Boom[0].y - 0.7;
+        Boombound.height = 1.4, Boombound.width = 0.8;
+        if(detect_collision(Boombound, Barrybound))
+            destroy = 2;
+        if(destroy == 2)
+            gameover = 1;
+    }
+
+// Jump
     if(jump == 1 && jumpduration == 300)
         jump = 0;
     if(J.size() == 1){
