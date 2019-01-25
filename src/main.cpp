@@ -135,7 +135,6 @@ void tick_input(GLFWwindow *window) {
 }
 
 void tick_elements() {
-    // cout<<floorarr[0].speedx<<endl;
     bounding_box_t Barrybound;
     Barrybound.x = Barry.position.x;
     Barrybound.y = Barry.position.y;
@@ -171,7 +170,7 @@ void tick_elements() {
     }
 
 // Arc
-    if(arc.size() == 0 && counter%1250 == 0)
+    if(arc.size() == 0 && counter%650 == 0)
         arc.push_back(Arc(14.0, 3.5));
     if(arc.size() == 1){
         arc[0].tick(floorarr[0].speedx);
@@ -183,6 +182,10 @@ void tick_elements() {
         if(in_arc == 1){
             float arc_y = arc[0].Get_y(Barry.position.x);
             Barry.position.y = arc_y - Barrybound.height;
+        }
+        if(arc[0].x + 4.0 <= -1.0){
+            arc.erase(arc.begin());
+            in_arc = 0;
         }
     }
 
