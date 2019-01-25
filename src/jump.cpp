@@ -10,7 +10,7 @@ using namespace std;
 Jump::Jump(float y) {
     this->y = y;
     this->radius = 0.4;
-    this->speedx = 0.02;
+    this->speedx = 0.05;
     this->speedy = 0.0;
     this->C = Circle(14.0, y, 0.4, this->speedx , 0.0, COLOR_GREEN);
 }
@@ -29,7 +29,7 @@ int Jump::tick(float speedx) {
         this->y = this->y + this->speedy;
     }
     this->C.position.y = this->y;
-    this->speedx = 0.02 + speedx;
+    this->speedx = 0.05 + speedx;
     this->C.speedx = this->speedx;
     this->C.tick();
     if(this->C.position.x < -1.0)

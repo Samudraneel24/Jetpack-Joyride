@@ -20,10 +20,12 @@ void Arc::draw(glm::mat4 VP) {
 void Arc::tick(float speedx) {
     Large.speedx = Small.speedx = speedx;
     Large.tick(), Small.tick();
+    this->x = Large.position.x, this->y = Large.position.y;
 }
 
 float Arc::Get_y(float x){
     float xcord = x - this->x;
     float ycord = sqrt(this->radius*this->radius - xcord*xcord);
+    // cout<<xcord<<" "<<ycord<<endl;
     return ycord + this->y;
 }

@@ -114,7 +114,7 @@ void tick_input(GLFWwindow *window) {
         if(Barry.position.x >= 0.0)
             Barry.position.x -= 0.1;
     }
-    else if(right){
+    if(right){
         if(Barry.position.x < 5.5)
             Barry.position.x += 0.1;
         else{
@@ -123,10 +123,10 @@ void tick_input(GLFWwindow *window) {
             }
         }
     }
-    else if(up && in_arc == 0){
+    if(up && in_arc == 0){
         Barry.speedy += 0.01;
     }
-    else if(w){
+    if(w){
         if(ballooncounter > 200 && Balloon.size() == 0){
             Balloon.push_back(Ellipse(Barry.position.x + 0.75, Barry.position.y + 0.5, 0.5, 0.3, 0.15, 0.15, COLOR_BLUE));
             ballooncounter = 0;
@@ -135,7 +135,7 @@ void tick_input(GLFWwindow *window) {
 }
 
 void tick_elements() {
-    // cout<<in_arc<<endl;
+    // cout<<floorarr[0].speedx<<endl;
     bounding_box_t Barrybound;
     Barrybound.x = Barry.position.x;
     Barrybound.y = Barry.position.y;
@@ -164,7 +164,7 @@ void tick_elements() {
         bounding_box_t Boombound;
         Boombound.x = Boom[0].x, Boombound.y = Boom[0].y - 0.7;
         Boombound.height = 1.4, Boombound.width = 0.8;
-        if(detect_collision(Boombound, Barrybound))
+        if(in_arc == 0 && detect_collision(Boombound, Barrybound))
             destroy = 2;
         if(destroy == 2)
             gameover = 1;
@@ -175,16 +175,14 @@ void tick_elements() {
         arc.push_back(Arc(14.0, 3.5));
     if(arc.size() == 1){
         arc[0].tick(floorarr[0].speedx);
-        if( (Barry.position.x >= arc[0].x - 4.0 || Barry.position.x <= arc[0].x + 4.0) && Barry.position.y + 1.0 <= arc[0].y){
+        if( (Barry.position.x >= arc[0].x - 4.0) && (Barry.position.x <= arc[0].x + 4.0) && (Barry.position.y + 1.0 <= arc[0].y) ){
             in_arc = 1;
-            cout<<1<<endl;
         }
-        if(Barry.position.x < arc[0].x - 4.0 || Barry.position.x > arc[0].x + 4.0)
+        if(in_arc == 1 && (Barry.position.x <= arc[0].x - 4.0 || Barry.position.x >= arc[0].x + 4.0))
             in_arc = 0;
         if(in_arc == 1){
-            float circle_y = arc[0].Get_y(Barry.position.x);
-            cout<<Barry.position.x<<" "<<circle_y<<endl;
-            Barry.position.y = circle_y - Barrybound.height;
+            float arc_y = arc[0].Get_y(Barry.position.x);
+            Barry.position.y = arc_y - Barrybound.height;
         }
     }
 
@@ -197,7 +195,7 @@ void tick_elements() {
         Ballbound.y = J[0].y - J[0].radius;
         Ballbound.height = Ballbound.width = 2.0*J[0].radius;
         int destroy = 0;
-        if(detect_collision(Ballbound, Barrybound)){
+        if(in_arc == 0 && detect_collision(Ballbound, Barrybound)){
             jumpduration = 0;
             jump = 1;
             destroy = 1;
@@ -242,7 +240,7 @@ void tick_elements() {
         Laserbound.y = L[0].y;
         Laserbound.height = 0.4;
         Laserbound.width = 9.7;
-        if(jump == 0 && L[0].on == 1 && detect_collision(Laserbound, Barrybound))
+        if(in_arc == 0 && jump == 0 && L[0].on == 1 && detect_collision(Laserbound, Barrybound))
             gameover = 1;
         if(Balloon.size() == 1){
             Point Line_p, Line_q;
@@ -285,7 +283,7 @@ void tick_elements() {
             F.erase(F.begin());
             busy = 0;
         }
-        if(jump == 0 && F.size() > 0){
+        if(in_arc == 0 && jump == 0 && F.size() > 0){
             Point Line_p, Line_q;
             Point a, b, c, d;
             Line_p.x = F[0].leftx, Line_p.y = F[0].lefty;
@@ -364,14 +362,16 @@ void tick_elements() {
 
     if(M.size() == 1){
         M[0].tick(floorarr[0].speedx, floorarr[0].speedy);
-        if(M[0].x < Barry.position.x)
-            Barry.position.x -= 0.05;
-        else if(M[0].x > Barry.position.x)
-            Barry.position.x += 0.05;
-        if(M[0].y < Barry.position.y)
-            Barry.position.y -= 0.05;
-        else if(M[0].y > Barry.position.y)
-            Barry.position.y += 0.05;
+        if(in_arc == 0){
+            if(M[0].x < Barry.position.x)
+                Barry.position.x -= 0.05;
+            else if(M[0].x > Barry.position.x)
+                Barry.position.x += 0.05;
+            if(M[0].y < Barry.position.y)
+                Barry.position.y -= 0.05;
+            else if(M[0].y > Barry.position.y)
+                Barry.position.y += 0.05;
+        }
         if(M[0].x < -2.0){
             M.erase(M.begin());
         }
@@ -382,7 +382,7 @@ void tick_elements() {
         floorarr[i].tick();
         if(floorarr[i].position.x < -1)
             floorarr[i].position.x += 20;
-        if(jump == 0 && floorarr[i].speedx > 0.08)
+        if(jump == 0 && floorarr[i].speedx - 0.02 >= 0)
             floorarr[i].speedx -= 0.02;
         if(jump == 1)
             floorarr[i].speedx = 0.5;
@@ -436,11 +436,11 @@ void initGL(GLFWwindow *window, int width, int height) {
     float curx = 0.0;
     for(int i=0;i<20;i++){
         if(i%2==0){
-            floorarr[i] = Rectangle(curx, 0.0, 1.0, 1.0, 0.0, 0.08, 0.0, COLOR_BLACK);
+            floorarr[i] = Rectangle(curx, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, COLOR_BLACK);
             curx += 1.0;
         }
         else{
-            floorarr[i] = Rectangle(curx, 0.0, 1.0, 1.0, 0.0, 0.08, 0.0, COLOR_SILVER);
+            floorarr[i] = Rectangle(curx, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, COLOR_SILVER);
             curx += 1.0;
         }
     }
