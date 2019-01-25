@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/graphics_asgn1.dir/src/Lineintersection.cpp.o"
+  "CMakeFiles/graphics_asgn1.dir/src/arc.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/ball.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/boomerang.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/circle.cpp.o"

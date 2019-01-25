@@ -150,6 +150,33 @@ src/Lineintersection.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/Lineintersection.cpp.s
 .PHONY : src/Lineintersection.cpp.s
 
+src/arc.o: src/arc.cpp.o
+
+.PHONY : src/arc.o
+
+# target to build an object file
+src/arc.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/arc.cpp.o
+.PHONY : src/arc.cpp.o
+
+src/arc.i: src/arc.cpp.i
+
+.PHONY : src/arc.i
+
+# target to preprocess a source file
+src/arc.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/arc.cpp.i
+.PHONY : src/arc.cpp.i
+
+src/arc.s: src/arc.cpp.s
+
+.PHONY : src/arc.s
+
+# target to generate assembly for a file
+src/arc.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/arc.cpp.s
+.PHONY : src/arc.cpp.s
+
 src/ball.o: src/ball.cpp.o
 
 .PHONY : src/ball.o
@@ -648,6 +675,9 @@ help:
 	@echo "... src/Lineintersection.o"
 	@echo "... src/Lineintersection.i"
 	@echo "... src/Lineintersection.s"
+	@echo "... src/arc.o"
+	@echo "... src/arc.i"
+	@echo "... src/arc.s"
 	@echo "... src/ball.o"
 	@echo "... src/ball.i"
 	@echo "... src/ball.s"

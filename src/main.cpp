@@ -13,6 +13,7 @@
 #include "jump.h"
 #include "score.h"
 #include "boomerang.h"
+#include "arc.h"
 
 using namespace std;
 
@@ -33,12 +34,13 @@ std::vector<Ellipse> Balloon;
 std::vector<Jump> J;
 Score Sc;
 std::vector<Boomerang> Boom;
-// Circle Ci;
+std::vector<Arc> arc;
 
 int busy = 0, counter = 0, lasercounter = 0, gameover = 0, ballooncounter = 0;
 int lasercount = 0, firecount = 0;
 int jump = 0, jumpduration = 0;
 int points = 0, prevpoints = -1;
+int in_arc = 0;
 
 float screen_zoom = 1, screen_center_x = 0, screen_center_y = 0;
 float camera_rotation_angle = 0;
@@ -80,6 +82,8 @@ void draw() {
     glm::mat4 MVP;  // MVP = Projection * View * Model
 
     // Scene render
+    if(arc.size() == 1)
+        arc[0].draw(VP);
     for(int i=0;i<20;i++)
         floorarr[i].draw(VP);
     Barry.draw(VP);
@@ -111,7 +115,7 @@ void tick_input(GLFWwindow *window) {
             Barry.position.x -= 0.1;
     }
     else if(right){
-        if(Barry.position.x < 2.5)
+        if(Barry.position.x < 5.5)
             Barry.position.x += 0.1;
         else{
             for(int i=0;i<20;i++){
@@ -119,7 +123,7 @@ void tick_input(GLFWwindow *window) {
             }
         }
     }
-    else if(up){
+    else if(up && in_arc == 0){
         Barry.speedy += 0.01;
     }
     else if(w){
@@ -131,6 +135,7 @@ void tick_input(GLFWwindow *window) {
 }
 
 void tick_elements() {
+    // cout<<in_arc<<endl;
     bounding_box_t Barrybound;
     Barrybound.x = Barry.position.x;
     Barrybound.y = Barry.position.y;
@@ -163,6 +168,24 @@ void tick_elements() {
             destroy = 2;
         if(destroy == 2)
             gameover = 1;
+    }
+
+// Arc
+    if(arc.size() == 0 && counter%1250 == 0)
+        arc.push_back(Arc(14.0, 3.5));
+    if(arc.size() == 1){
+        arc[0].tick(floorarr[0].speedx);
+        if( (Barry.position.x >= arc[0].x - 4.0 || Barry.position.x <= arc[0].x + 4.0) && Barry.position.y + 1.0 <= arc[0].y){
+            in_arc = 1;
+            cout<<1<<endl;
+        }
+        if(Barry.position.x < arc[0].x - 4.0 || Barry.position.x > arc[0].x + 4.0)
+            in_arc = 0;
+        if(in_arc == 1){
+            float circle_y = arc[0].Get_y(Barry.position.x);
+            cout<<Barry.position.x<<" "<<circle_y<<endl;
+            Barry.position.y = circle_y - Barrybound.height;
+        }
     }
 
 // Jump
@@ -367,7 +390,7 @@ void tick_elements() {
 
 // Barry
     Barry.tick();
-    if(Barry.position.y > 1)
+    if(Barry.position.y > 1 && in_arc == 0)
         Barry.speedy -= 0.005;
 
 // Coins

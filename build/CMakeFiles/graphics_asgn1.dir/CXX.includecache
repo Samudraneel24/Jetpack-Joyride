@@ -16,6 +16,24 @@ Lineintersection.h
 main.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
 
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/arc.cpp
+iostream
+-
+fstream
+-
+algorithm
+-
+arc.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/arc.h
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/arc.h
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
+semicircle.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/semicircle.h
+
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/ball.cpp
 ball.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/ball.h
@@ -201,6 +219,8 @@ score.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/score.h
 boomerang.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/boomerang.h
+arc.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/arc.h
 
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
 iostream

@@ -13,8 +13,8 @@ Boomerang::Boomerang(float x, float y) {
     this->x = x, this->y = y;
     Centre1 = Rectangle(x, y, 1.0, 0.2, 45.0, 0.0, this->speedy, COLOR_TRUERED);
     Centre2 = Rectangle(x, y, 0.8, 0.2, -45.0, 0.0, this->speedy, COLOR_TRUERED);
-    Top = Rectangle(x , y , 0.8, 0.2, 45.0, 0.0, 0.0, COLOR_BLACK);
-    Bottom = Rectangle(x , y , 0.6, 0.2, -45.0, 0.0, 0.0, COLOR_BLACK);
+    Top = Rectangle(x , y , 0.8, 0.2, 45.0, 0.0, 0.0, COLOR_TRUEBLACK);
+    Bottom = Rectangle(x , y , 0.6, 0.2, -45.0, 0.0, 0.0, COLOR_TRUEBLACK);
 }
 
 void Boomerang::draw(glm::mat4 VP) {
