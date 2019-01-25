@@ -15,6 +15,7 @@
 #include "boomerang.h"
 #include "arc.h"
 #include "barry.h"
+#include "level.h"
 
 using namespace std;
 
@@ -34,6 +35,7 @@ std::vector<Magnet> M;
 std::vector<Ellipse> Balloon;
 std::vector<Jump> J;
 Score Sc;
+Level Lev;
 Barry Barr;
 std::vector<Boomerang> Boom;
 std::vector<Arc> arc;
@@ -43,6 +45,8 @@ int lasercount = 0, firecount = 0;
 int jump = 0, jumpduration = 0;
 int points = 0, prevpoints = -1;
 int in_arc = 0;
+int level = 1, prevlevel = 0;
+float floorspeed = 0.02;
 
 float screen_zoom = 1.0, screen_center_x = 0, screen_center_y = 0;
 float camera_rotation_angle = 0;
@@ -103,6 +107,7 @@ void draw() {
     if(J.size() == 1)
         J[0].draw(VP);
     Sc.draw(VP);
+    Lev.draw(VP);
     if(Boom.size() == 1)
         Boom[0].draw(VP);
 }
@@ -152,10 +157,22 @@ void tick_elements() {
     ballooncounter++;
     jumpduration++;
 
+// Levels
+    if(counter % 1000 == 0){
+        level++;
+        floorspeed += 0.02;
+    }
+
 // Score
     if(points != prevpoints){
         Sc.tick(floorarr[0].speedx, points);
         prevpoints = points;
+    }
+
+// Level
+    if(level != prevlevel){
+        Lev.tick(floorarr[0].speedx, level);
+        prevlevel = level;
     }
 
 // Boomerang
@@ -293,16 +310,16 @@ void tick_elements() {
             busy = 0;
         }
         if(jump == 0 && F.size() > 0){
+            Point Line_p, Line_q;
+            Point a, b, c, d;
+            Line_p.x = F[0].leftx, Line_p.y = F[0].lefty;
+            Line_q.x = F[0].rightx, Line_q.y = F[0].righty;
+            a.x = Barrbound.x, a.y = Barrbound.y;
+            b.x = Barrbound.x + Barrbound.width, b.y = Barrbound.y;
+            c.x = Barrbound.x, c.y = Barrbound.y + Barrbound.height;
+            d.x = Barrbound.x + Barrbound.width, d.y = Barrbound.y + Barrbound.height;
+            int intersect = 0;
             if(in_arc == 0){
-                Point Line_p, Line_q;
-                Point a, b, c, d;
-                Line_p.x = F[0].leftx, Line_p.y = F[0].lefty;
-                Line_q.x = F[0].rightx, Line_q.y = F[0].righty;
-                a.x = Barrbound.x, a.y = Barrbound.y;
-                b.x = Barrbound.x + Barrbound.width, b.y = Barrbound.y;
-                c.x = Barrbound.x, c.y = Barrbound.y + Barrbound.height;
-                d.x = Barrbound.x + Barrbound.width, d.y = Barrbound.y + Barrbound.height;
-                int intersect = 0;
                 if(doIntersect(a, b, Line_p, Line_q))
                     intersect = 1;
                 if(doIntersect(b, c, Line_p, Line_q))
@@ -393,7 +410,7 @@ void tick_elements() {
         floorarr[i].tick();
         if(floorarr[i].position.x < -1)
             floorarr[i].position.x += 20;
-        if(jump == 0 && floorarr[i].speedx - 0.02 >= 0)
+        if(jump == 0 && floorarr[i].speedx - 0.02 >= floorspeed)
             floorarr[i].speedx -= 0.02;
         if(jump == 1)
             floorarr[i].speedx = 0.5;
@@ -447,16 +464,17 @@ void initGL(GLFWwindow *window, int width, int height) {
     float curx = 0.0;
     for(int i=0;i<20;i++){
         if(i%2==0){
-            floorarr[i] = Rectangle(curx, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, COLOR_BLACK);
+            floorarr[i] = Rectangle(curx, 0.0, 1.0, 1.0, 0.0, 0.02, 0.0, COLOR_BLACK);
             curx += 1.0;
         }
         else{
-            floorarr[i] = Rectangle(curx, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, COLOR_SILVER);
+            floorarr[i] = Rectangle(curx, 0.0, 1.0, 1.0, 0.0, 0.02, 0.0, COLOR_SILVER);
             curx += 1.0;
         }
     }
     Barr = Barry(2.5, 1.0);
     Sc = Score(9.0, 7.5);
+    Lev = Level(1.0, 7.5);
     // Ci = Circle(4.0, 4.0, 1.0, 0.0, 0.0, COLOR_BLACK);
     // J.push_back(Jump(4.0));
     // Create and compile our GLSL program from the shaders

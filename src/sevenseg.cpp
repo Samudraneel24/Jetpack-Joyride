@@ -49,6 +49,10 @@ void SevenSeg::tick(float speedx, char c) {
         this->on = "1110011";
     else if(c == '-')
         this->on = "0000001";
+    else if(c == 'l')
+        this->on = "1110000";
+    else if(c == 'v')
+        this->on = "1111100";
     if(this->on[0] == '1')
         this->R[0] = Rectangle(x, y, 0.2, 0.03, -90.0, 0.0, 0.0, COLOR_BLACK);
     if(this->on[1] == '1')

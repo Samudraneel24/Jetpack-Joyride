@@ -28,6 +28,8 @@ void Barry::tick(float screen_length, float screen_height) {
     this->y += this->speedy;
     if(this->y + this->height >= screen_height)
         this->speedy = 0.0;
+    if(this->y < 1.0)
+        this->y = 1.0;
     this->y = min(this->y, (float)(screen_height - this->height) );
     this->x = min(this->x, (float)(screen_length/2.0 - this->length) );
     this->R.position.x = this->x;

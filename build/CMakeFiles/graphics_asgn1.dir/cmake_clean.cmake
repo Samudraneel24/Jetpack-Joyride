@@ -11,6 +11,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/graphics_asgn1.dir/src/input.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/jump.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/laser.cpp.o"
+  "CMakeFiles/graphics_asgn1.dir/src/level.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/magnet.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/main.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o"
