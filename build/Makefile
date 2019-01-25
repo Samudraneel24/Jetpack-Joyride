@@ -204,6 +204,33 @@ src/ball.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/ball.cpp.s
 .PHONY : src/ball.cpp.s
 
+src/barry.o: src/barry.cpp.o
+
+.PHONY : src/barry.o
+
+# target to build an object file
+src/barry.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/barry.cpp.o
+.PHONY : src/barry.cpp.o
+
+src/barry.i: src/barry.cpp.i
+
+.PHONY : src/barry.i
+
+# target to preprocess a source file
+src/barry.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/barry.cpp.i
+.PHONY : src/barry.cpp.i
+
+src/barry.s: src/barry.cpp.s
+
+.PHONY : src/barry.s
+
+# target to generate assembly for a file
+src/barry.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/barry.cpp.s
+.PHONY : src/barry.cpp.s
+
 src/boomerang.o: src/boomerang.cpp.o
 
 .PHONY : src/boomerang.o
@@ -681,6 +708,9 @@ help:
 	@echo "... src/ball.o"
 	@echo "... src/ball.i"
 	@echo "... src/ball.s"
+	@echo "... src/barry.o"
+	@echo "... src/barry.i"
+	@echo "... src/barry.s"
 	@echo "... src/boomerang.o"
 	@echo "... src/boomerang.i"
 	@echo "... src/boomerang.s"

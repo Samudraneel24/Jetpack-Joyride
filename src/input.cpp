@@ -88,4 +88,10 @@ void mouseButton(GLFWwindow *window, int button, int action, int mods) {
 
 void scroll_callback(GLFWwindow *window, double xoffset, double yoffset) {
     // Do something
+    if(yoffset > 0)
+        screen_zoom += 0.02;
+    if(yoffset < 0 && screen_zoom - 0.02 >= 1.0)
+        screen_zoom -= 0.02;
+    // Barr.tick(screen_length, screen_height);
+    reset_screen();
 }

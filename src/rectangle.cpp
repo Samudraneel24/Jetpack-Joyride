@@ -41,14 +41,14 @@ void Rectangle::set_position(float x, float y) {
 }
 
 void Rectangle::tick() {
-    this->position.x -= speedx;
+    this->position.x -= this->speedx;
     if(this->position.y  + this->width >= 8.0 && this->speedy > 0)
         this->speedy = 0.0;
-    if(this->position.y > 1.0 && this->position.y + speedy < 1.0){
+    if(this->position.y > 1.0 && this->position.y + this->speedy < 1.0){
         this->position.y = 1.0;
-        speedy = 0.0;
+        this->speedy = 0.0;
     }
-    this->position.y += speedy;
+    this->position.y += this->speedy;
     if(this->position.y + this->width >= 8.0)
         this->speedy = 0.0;
 }

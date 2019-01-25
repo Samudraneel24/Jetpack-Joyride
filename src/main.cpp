@@ -14,6 +14,7 @@
 #include "score.h"
 #include "boomerang.h"
 #include "arc.h"
+#include "barry.h"
 
 using namespace std;
 
@@ -25,7 +26,7 @@ GLFWwindow *window;
 * Customizable functions *
 **************************/
 
-Rectangle floorarr[20], Barry;
+Rectangle floorarr[20];
 std::vector<Circle> Coinarr;
 std::vector<Laser> L;
 std::vector<Fire> F;
@@ -33,6 +34,7 @@ std::vector<Magnet> M;
 std::vector<Ellipse> Balloon;
 std::vector<Jump> J;
 Score Sc;
+Barry Barr;
 std::vector<Boomerang> Boom;
 std::vector<Arc> arc;
 
@@ -42,9 +44,10 @@ int jump = 0, jumpduration = 0;
 int points = 0, prevpoints = -1;
 int in_arc = 0;
 
-float screen_zoom = 1, screen_center_x = 0, screen_center_y = 0;
+float screen_zoom = 1.0, screen_center_x = 0, screen_center_y = 0;
 float camera_rotation_angle = 0;
 float aspect_ratio = 1000.0/600.0;
+float screen_length, screen_height;
 
 Timer t60(1.0 / 60);
 
@@ -86,7 +89,7 @@ void draw() {
         arc[0].draw(VP);
     for(int i=0;i<20;i++)
         floorarr[i].draw(VP);
-    Barry.draw(VP);
+    Barr.draw(VP);
     for(int i=0;i<Coinarr.size();i++)
         Coinarr[i].draw(VP);
     if(busy == 1)
@@ -109,14 +112,15 @@ void tick_input(GLFWwindow *window) {
     int right = glfwGetKey(window, GLFW_KEY_RIGHT);
     int up = glfwGetKey(window, GLFW_KEY_UP);
     int w = glfwGetKey(window, GLFW_KEY_W);
+    int scroll = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_MIDDLE);
     if (left) {
         // Do something
-        if(Barry.position.x >= 0.0)
-            Barry.position.x -= 0.1;
+        if(Barr.x >= 0.0)
+            Barr.x -= 0.1;
     }
     if(right){
-        if(Barry.position.x < 5.5)
-            Barry.position.x += 0.1;
+        if(Barr.x < (screen_length/2.0 - 1.0) )
+            Barr.x += 0.1;
         else{
             for(int i=0;i<20;i++){
                 floorarr[i].speedx = 0.2;
@@ -124,22 +128,24 @@ void tick_input(GLFWwindow *window) {
         }
     }
     if(up && in_arc == 0){
-        Barry.speedy += 0.01;
+        Barr.speedy += 0.01;
     }
     if(w){
         if(ballooncounter > 200 && Balloon.size() == 0){
-            Balloon.push_back(Ellipse(Barry.position.x + 0.75, Barry.position.y + 0.5, 0.5, 0.3, 0.15, 0.15, COLOR_BLUE));
+            Balloon.push_back(Ellipse(Barr.x + 0.75, Barr.y + 0.5, 0.5, 0.3, 0.15, 0.15, COLOR_BLUE));
             ballooncounter = 0;
         }
     }
+    Barr.tick(screen_length, screen_height);
 }
 
+
 void tick_elements() {
-    bounding_box_t Barrybound;
-    Barrybound.x = Barry.position.x;
-    Barrybound.y = Barry.position.y;
-    Barrybound.height = Barry.width;
-    Barrybound.width = Barry.len;
+    bounding_box_t Barrbound;
+    Barrbound.x = Barr.x;
+    Barrbound.y = Barr.y;
+    Barrbound.height = Barr.height;
+    Barrbound.width = Barr.length;
 
     counter++;
     lasercounter++;
@@ -163,7 +169,7 @@ void tick_elements() {
         bounding_box_t Boombound;
         Boombound.x = Boom[0].x, Boombound.y = Boom[0].y - 0.7;
         Boombound.height = 1.4, Boombound.width = 0.8;
-        if(in_arc == 0 && detect_collision(Boombound, Barrybound))
+        if(in_arc == 0 && detect_collision(Boombound, Barrbound))
             destroy = 2;
         if(destroy == 2)
             gameover = 1;
@@ -174,14 +180,14 @@ void tick_elements() {
         arc.push_back(Arc(14.0, 3.5));
     if(arc.size() == 1){
         arc[0].tick(floorarr[0].speedx);
-        if( (Barry.position.x >= arc[0].x - 4.0) && (Barry.position.x <= arc[0].x + 4.0) && (Barry.position.y + 1.0 <= arc[0].y) ){
+        if( (Barr.x >= arc[0].x - 4.0) && (Barr.x <= arc[0].x + 4.0) && (Barr.y + 1.0 <= arc[0].y) ){
             in_arc = 1;
         }
-        if(in_arc == 1 && (Barry.position.x <= arc[0].x - 4.0 || Barry.position.x >= arc[0].x + 4.0))
+        if(in_arc == 1 && (Barr.x <= arc[0].x - 4.0 || Barr.x >= arc[0].x + 4.0))
             in_arc = 0;
         if(in_arc == 1){
-            float arc_y = arc[0].Get_y(Barry.position.x);
-            Barry.position.y = arc_y - Barrybound.height;
+            float arc_y = arc[0].Get_y(Barr.x);
+            Barr.y = min(screen_height - Barr.height, arc_y - Barrbound.height);
         }
         if(arc[0].x + 4.0 <= -1.0){
             arc.erase(arc.begin());
@@ -198,7 +204,7 @@ void tick_elements() {
         Ballbound.y = J[0].y - J[0].radius;
         Ballbound.height = Ballbound.width = 2.0*J[0].radius;
         int destroy = 0;
-        if(in_arc == 0 && detect_collision(Ballbound, Barrybound)){
+        if(in_arc == 0 && detect_collision(Ballbound, Barrbound)){
             jumpduration = 0;
             jump = 1;
             destroy = 1;
@@ -234,7 +240,7 @@ void tick_elements() {
         busy = 0;
     }
     if(busy == 1){
-        if(L[0].y > Barry.position.y)
+        if(L[0].y > Barr.y)
             L[0].tick(lasercounter, -1.0);
         else
             L[0].tick(lasercounter, 1.0);
@@ -243,7 +249,7 @@ void tick_elements() {
         Laserbound.y = L[0].y;
         Laserbound.height = 0.4;
         Laserbound.width = 9.7;
-        if(in_arc == 0 && jump == 0 && L[0].on == 1 && detect_collision(Laserbound, Barrybound))
+        if(in_arc == 0 && jump == 0 && L[0].on == 1 && detect_collision(Laserbound, Barrbound))
             gameover = 1;
         if(Balloon.size() == 1){
             Point Line_p, Line_q;
@@ -286,26 +292,28 @@ void tick_elements() {
             F.erase(F.begin());
             busy = 0;
         }
-        if(in_arc == 0 && jump == 0 && F.size() > 0){
-            Point Line_p, Line_q;
-            Point a, b, c, d;
-            Line_p.x = F[0].leftx, Line_p.y = F[0].lefty;
-            Line_q.x = F[0].rightx, Line_q.y = F[0].righty;
-            a.x = Barrybound.x, a.y = Barrybound.y;
-            b.x = Barrybound.x + Barrybound.width, b.y = Barrybound.y;
-            c.x = Barrybound.x, c.y = Barrybound.y + Barrybound.height;
-            d.x = Barrybound.x + Barrybound.width, d.y = Barrybound.y + Barrybound.height;
-            int intersect = 0;
-            if(doIntersect(a, b, Line_p, Line_q))
-                intersect = 1;
-            if(doIntersect(b, c, Line_p, Line_q))
-                intersect = 1;
-            if(doIntersect(c, d, Line_p, Line_q))
-                intersect = 1;
-            if(doIntersect(d, a, Line_p, Line_q))
-                intersect = 1;
-            if(intersect == 1)
-                gameover = 1;
+        if(jump == 0 && F.size() > 0){
+            if(in_arc == 0){
+                Point Line_p, Line_q;
+                Point a, b, c, d;
+                Line_p.x = F[0].leftx, Line_p.y = F[0].lefty;
+                Line_q.x = F[0].rightx, Line_q.y = F[0].righty;
+                a.x = Barrbound.x, a.y = Barrbound.y;
+                b.x = Barrbound.x + Barrbound.width, b.y = Barrbound.y;
+                c.x = Barrbound.x, c.y = Barrbound.y + Barrbound.height;
+                d.x = Barrbound.x + Barrbound.width, d.y = Barrbound.y + Barrbound.height;
+                int intersect = 0;
+                if(doIntersect(a, b, Line_p, Line_q))
+                    intersect = 1;
+                if(doIntersect(b, c, Line_p, Line_q))
+                    intersect = 1;
+                if(doIntersect(c, d, Line_p, Line_q))
+                    intersect = 1;
+                if(doIntersect(d, a, Line_p, Line_q))
+                    intersect = 1;
+                if(intersect == 1)
+                    gameover = 1;
+            }
 
             if(Balloon.size() == 1){
                 a.x = Balloon[0].position.x - 0.5, a.y = Balloon[0].position.y - 0.3;
@@ -366,14 +374,14 @@ void tick_elements() {
     if(M.size() == 1){
         M[0].tick(floorarr[0].speedx, floorarr[0].speedy);
         if(in_arc == 0){
-            if(M[0].x < Barry.position.x)
-                Barry.position.x -= 0.05;
-            else if(M[0].x > Barry.position.x)
-                Barry.position.x += 0.05;
-            if(M[0].y < Barry.position.y)
-                Barry.position.y -= 0.05;
-            else if(M[0].y > Barry.position.y)
-                Barry.position.y += 0.05;
+            if(M[0].x < Barr.x)
+                Barr.x -= 0.05;
+            else if(M[0].x > Barr.x && Barr.x + 0.05 <= screen_length/2 - 0.5)
+                Barr.x += 0.05;
+            if(M[0].y < Barr.y)
+                Barr.y -= 0.05;
+            else if(M[0].y > Barr.y && Barr.y + 0.05 <= screen_height - 1.0)
+                Barr.y += 0.05;
         }
         if(M[0].x < -2.0){
             M.erase(M.begin());
@@ -391,10 +399,10 @@ void tick_elements() {
             floorarr[i].speedx = 0.5;
     }
 
-// Barry
-    Barry.tick();
-    if(Barry.position.y > 1 && in_arc == 0)
-        Barry.speedy -= 0.005;
+// Barr
+    Barr.tick(screen_length, screen_height);
+    if(Barr.y > 1 && in_arc == 0)
+        Barr.speedy -= 0.005;
 
 // Coins
     if(Coinarr.size() == 0){
@@ -413,7 +421,7 @@ void tick_elements() {
         Coinbound.y = Coinarr[i].position.y-0.2;
         Coinbound.height = 0.4;
         Coinbound.width = 0.4;
-        if(detect_collision(Coinbound, Barrybound)){
+        if(detect_collision(Coinbound, Barrbound)){
             points += 10;
             Coinarr.erase(Coinarr.begin() + i);
             i--;
@@ -447,7 +455,7 @@ void initGL(GLFWwindow *window, int width, int height) {
             curx += 1.0;
         }
     }
-    Barry = Rectangle(2.5, 1.0, 0.5, 1.0, 0.0, 0.0, 0.0, COLOR_BLUE);
+    Barr = Barry(2.5, 1.0);
     Sc = Score(9.0, 7.5);
     // Ci = Circle(4.0, 4.0, 1.0, 0.0, 0.0, COLOR_BLACK);
     // J.push_back(Jump(4.0));
@@ -493,6 +501,7 @@ int main(int argc, char **argv) {
             glfwSwapBuffers(window);
 
             tick_elements();
+            // glfwSetScrollCallback(window, scroll_callback);
             tick_input(window);
             // cout<<gameover<<endl;
         }
@@ -514,5 +523,6 @@ void reset_screen() {
     float bottom = screen_center_y;
     float left   = screen_center_x;
     float right  = screen_center_x + ((8*aspect_ratio) / screen_zoom);
+    screen_length = right, screen_height = top;
     Matrices.projection = glm::ortho(left, right, bottom, top, 0.1f, 500.0f);
 }

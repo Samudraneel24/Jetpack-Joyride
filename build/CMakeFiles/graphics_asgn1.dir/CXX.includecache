@@ -44,6 +44,24 @@ main.h
 main.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
 
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/barry.cpp
+iostream
+-
+fstream
+-
+algorithm
+-
+barry.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/barry.h
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/barry.h
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
+rectangle.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.h
+
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/boomerang.cpp
 iostream
 -
@@ -221,6 +239,8 @@ boomerang.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/boomerang.h
 arc.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/arc.h
+barry.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/barry.h
 
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
 iostream
