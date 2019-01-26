@@ -9,7 +9,8 @@ SevenSeg::SevenSeg(float x, float y) {
     this->on = "1111111";
     for(int i=0; i<7;i++)
         this->R[i] = Rectangle(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, COLOR_BLACK);
-    this->x = x, this->y = y;
+    this->x = this->orgx = x;
+    this->y = this->orgy = y;
 }
 
 void SevenSeg::draw(glm::mat4 VP) {

@@ -63,6 +63,7 @@ float screen_zoom = 1.0, screen_center_x = 0, screen_center_y = 0;
 float camera_rotation_angle = 0;
 float aspect_ratio = 1000.0/600.0;
 float screen_length, screen_height;
+float prev_zoom1 = 0, prev_zoom2 = 0;
 
 Timer t60(1.0 / 60);
 
@@ -205,15 +206,17 @@ void tick_elements() {
     }
 
 // Score
-    if(points != prevpoints){
-        Sc.tick(floorarr[0].speedx, points);
+    if(points != prevpoints || screen_zoom != prev_zoom1){
+        Sc.tick(floorarr[0].speedx, points, screen_zoom);
         prevpoints = points;
+        prev_zoom1 = screen_zoom;
     }
 
 // Level
-    if(level != prevlevel){
-        Lev.tick(floorarr[0].speedx, level);
+    if(level != prevlevel || screen_zoom != prev_zoom2){
+        Lev.tick(floorarr[0].speedx, level, screen_zoom);
         prevlevel = level;
+        prev_zoom2 = screen_zoom;
     }
 
 // Boomerang
@@ -598,7 +601,7 @@ void tick_elements() {
 
     int i;
     for(i=0; i<lifecount; i++)
-        life[i].tick();
+        life[i].tick(screen_zoom);
     for(; i<life.size();)
         life.erase(life.begin() + i);
     if(lifecount == 0)

@@ -10,7 +10,7 @@ public:
     Level() {}
     Level(float x, float y);
     void draw(glm::mat4 VP);
-    void tick(float speedx, int Level);
+    void tick(float speedx, int Level, float screen_zoom);
     SevenSeg Character[9];
     float x, y, speedx;
 private:

@@ -29,13 +29,17 @@ void Score::draw(glm::mat4 VP) {
         this->Character[i].draw(VP);
 }
 
-void Score::tick(float speedx, int score) {
+void Score::tick(float speedx, int score, float screen_zoom) {
     int dig;
     char c[6];
     for(int i=0; i<6; i++){
         dig = score%10;
         c[i] = dig + '0';
         score/=10;
+    }
+    for(int i=0;i<12;i++){
+        this->Character[i].x = this->Character[i].orgx/screen_zoom;
+        this->Character[i].y = this->Character[i].orgy/screen_zoom;
     }
     this->speedx = speedx;
     this->Character[0].tick(speedx, 's');

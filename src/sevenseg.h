@@ -16,7 +16,7 @@ public:
     void tick(float speedx, char c);
     Rectangle R[7];
     string on;
-    float x, y, speedx;
+    float x, y, speedx,  orgx, orgy;
     char c;
 private:
     VAO *object;

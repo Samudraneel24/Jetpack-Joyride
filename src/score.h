@@ -10,7 +10,7 @@ public:
     Score() {}
     Score(float x, float y);
     void draw(glm::mat4 VP);
-    void tick(float speedx, int score);
+    void tick(float speedx, int score, float screen_zoom);
     SevenSeg Character[12];
     float x, y, speedx;
 private:

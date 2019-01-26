@@ -13,9 +13,9 @@ public:
     glm::vec3 position;
     void set_position(float x, float y);
     void draw(glm::mat4 VP);
-    void tick();
+    void tick(float screen_zoom);
     Semicircle Left, Right;
-    float speedx, speedy;
+    float speedx, speedy, orgx, orgy;
 private:
     VAO *object;
 };
