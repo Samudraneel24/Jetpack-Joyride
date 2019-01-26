@@ -22,6 +22,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/graphics_asgn1.dir/src/score.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/semicircle.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o"
+  "CMakeFiles/graphics_asgn1.dir/src/shield.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o"

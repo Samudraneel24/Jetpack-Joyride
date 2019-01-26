@@ -20,6 +20,7 @@
 #include "lives.h"
 #include "lifeball.h"
 #include "shieldball.h"
+#include "shield.h"
 
 using namespace std;
 
@@ -47,6 +48,7 @@ std::vector<Boomerang> Boom;
 std::vector<Arc> arc;
 std::vector<Viserion> Vis;
 std::vector<Life> life;
+std::vector<Shield> Shieldarr;
 
 int busy = 0, counter = 0, lasercounter = 0, gameover = 0, ballooncounter = 0;
 int lasercount = 0, firecount = 0, dragoncounter = 0, icecounter = 0;
@@ -129,6 +131,8 @@ void draw() {
         Vis[0].draw(VP);
     for(int i=0; i<life.size(); i++)
         life[i].draw(VP);
+    if(Shieldarr.size() == 1)
+        Shieldarr[0].draw(VP);
 }
 
 void tick_input(GLFWwindow *window) {
@@ -168,7 +172,7 @@ void tick_input(GLFWwindow *window) {
 
 
 void tick_elements() {
-    // cout<<lifecount<<endl;
+
     bounding_box_t Barrbound;
     Barrbound.x = Barr.x - 0.5;
     Barrbound.y = Barr.y - 0.35;
@@ -227,7 +231,12 @@ void tick_elements() {
             destroy = 2;
         if(destroy == 2){
             Boom.erase(Boom.begin());
-            lifecount--;
+            if(is_shield == 1){
+                is_shield = 0;
+                Shieldarr.erase(Shieldarr.begin());
+            }
+            else
+                lifecount--;
         }
     }
 
@@ -321,6 +330,14 @@ void tick_elements() {
         Sball.push_back(Shieldball(y));
     }
 
+// Shield
+
+    if(Shieldarr.size() == 0 && is_shield == 1)
+        Shieldarr.push_back(Shield((float)(Barr.x ), (float)(Barr.y) ) );
+    else if(Shieldarr.size() == 1){
+        Shieldarr[0].tick((float)(Barr.x ), (float)(Barr.y) );
+    }
+
 // Balloon
     if(Balloon.size() == 1){
         Balloon[0].speedy -= 0.01;
@@ -353,7 +370,12 @@ void tick_elements() {
         if(in_arc == 0 && jump == 0 && L[0].on == 1 && detect_collision(Laserbound, Barrbound)){
             L.erase(L.begin());
             busy = 0;
-            lifecount--;
+            if(is_shield == 1){
+                is_shield = 0;
+                Shieldarr.erase(Shieldarr.begin());
+            }
+            else
+                lifecount--;
         }
         if(Balloon.size() == 1){
             Point Line_p, Line_q;
@@ -406,7 +428,12 @@ void tick_elements() {
                 if(doIntersect(Barr_d, Barr_a, Line_p, Line_q))
                     intersect = 1;
                 if(intersect == 1){
-                    lifecount--;
+                    if(is_shield == 1){
+                        is_shield = 0;
+                        Shieldarr.erase(Shieldarr.begin());
+                    }
+                    else
+                        lifecount--;
                     F.erase(F.begin());
                     busy = 0;
                 }
@@ -556,7 +583,12 @@ void tick_elements() {
         Icebound.width = 1.0;
         if(detect_collision(Icebound, Barrbound)){
             Ice.erase(Ice.begin());
-            lifecount--;
+            if(is_shield == 1){
+                is_shield = 0;
+                Shieldarr.erase(Shieldarr.begin());
+            }
+            else
+                lifecount--;
         }
         if(Ice[0].position.y <= 1.3)
             Ice.erase(Ice.begin());

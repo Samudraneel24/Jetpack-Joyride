@@ -744,6 +744,33 @@ src/sevenseg.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.s
 .PHONY : src/sevenseg.cpp.s
 
+src/shield.o: src/shield.cpp.o
+
+.PHONY : src/shield.o
+
+# target to build an object file
+src/shield.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/shield.cpp.o
+.PHONY : src/shield.cpp.o
+
+src/shield.i: src/shield.cpp.i
+
+.PHONY : src/shield.i
+
+# target to preprocess a source file
+src/shield.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/shield.cpp.i
+.PHONY : src/shield.cpp.i
+
+src/shield.s: src/shield.cpp.s
+
+.PHONY : src/shield.s
+
+# target to generate assembly for a file
+src/shield.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/shield.cpp.s
+.PHONY : src/shield.cpp.s
+
 src/shieldball.o: src/shieldball.cpp.o
 
 .PHONY : src/shieldball.o
@@ -903,6 +930,9 @@ help:
 	@echo "... src/sevenseg.o"
 	@echo "... src/sevenseg.i"
 	@echo "... src/sevenseg.s"
+	@echo "... src/shield.o"
+	@echo "... src/shield.i"
+	@echo "... src/shield.s"
 	@echo "... src/shieldball.o"
 	@echo "... src/shieldball.i"
 	@echo "... src/shieldball.s"

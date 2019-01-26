@@ -311,6 +311,8 @@ lifeball.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/lifeball.h
 shieldball.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/shieldball.h
+shield.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/shield.h
 
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
 iostream
@@ -443,6 +445,20 @@ rectangle.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.h
 string
 -
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/shield.cpp
+iostream
+-
+fstream
+-
+shield.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/shield.h
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/shield.h
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
 
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/shieldball.cpp
 iostream
