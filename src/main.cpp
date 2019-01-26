@@ -582,8 +582,10 @@ void tick_elements() {
             Balloon.erase(Balloon.begin());
             Vis[0].life --;
         }
-        if(Vis[0].life == 0)
+        if(Vis[0].life == 0){
+            points += 750;
             Vis.erase(Vis.begin());
+        }
         if(Ice.size() == 0 && icecounter > 100){
             Ice.push_back(Ellipse(Vis[0].position.x - 2.1, Vis[0].position.y + 1.5, 0.5, 0.3, -0.08, 0.15, COLOR_ICE));
             icecounter = 0;
