@@ -79,6 +79,7 @@ extern float screen_zoom, screen_center_x, screen_center_y;
 void reset_screen();
 
 // ---- Colors ----
+extern const color_t COLOR_ICE;
 extern const color_t COLOR_PINK;
 extern const color_t COLOR_TRUEBLACK;
 extern const color_t COLOR_TRUERED;

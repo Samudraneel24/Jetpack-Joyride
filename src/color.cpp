@@ -1,6 +1,7 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include "main.h"
 
+const color_t COLOR_ICE = {70, 130, 255};
 const color_t COLOR_PINK = {255, 66, 204};
 const color_t COLOR_TRUEBLACK = {0, 0, 0};
 const color_t COLOR_TRUERED = {255, 0, 0};

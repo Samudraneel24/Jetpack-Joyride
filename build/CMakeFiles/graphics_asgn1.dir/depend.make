@@ -61,6 +61,13 @@ CMakeFiles/graphics_asgn1.dir/src/level.cpp.o: ../src/main.h
 CMakeFiles/graphics_asgn1.dir/src/level.cpp.o: ../src/rectangle.h
 CMakeFiles/graphics_asgn1.dir/src/level.cpp.o: ../src/sevenseg.h
 
+CMakeFiles/graphics_asgn1.dir/src/lives.cpp.o: ../src/lives.cpp
+CMakeFiles/graphics_asgn1.dir/src/lives.cpp.o: ../src/lives.h
+CMakeFiles/graphics_asgn1.dir/src/lives.cpp.o: ../src/main.h
+CMakeFiles/graphics_asgn1.dir/src/lives.cpp.o: ../src/rectangle.h
+CMakeFiles/graphics_asgn1.dir/src/lives.cpp.o: ../src/semicircle.h
+CMakeFiles/graphics_asgn1.dir/src/lives.cpp.o: ../src/sevenseg.h
+
 CMakeFiles/graphics_asgn1.dir/src/magnet.cpp.o: ../src/magnet.cpp
 CMakeFiles/graphics_asgn1.dir/src/magnet.cpp.o: ../src/magnet.h
 CMakeFiles/graphics_asgn1.dir/src/magnet.cpp.o: ../src/main.h
@@ -78,6 +85,7 @@ CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/fire.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/jump.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/laser.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/level.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/lives.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/magnet.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/main.h

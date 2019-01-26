@@ -17,6 +17,7 @@
 #include "barry.h"
 #include "level.h"
 #include "viserion.h"
+#include "lives.h"
 
 using namespace std;
 
@@ -33,7 +34,7 @@ std::vector<Circle> Coinarr;
 std::vector<Laser> L;
 std::vector<Fire> F;
 std::vector<Magnet> M;
-std::vector<Ellipse> Balloon;
+std::vector<Ellipse> Balloon, Ice;
 std::vector<Jump> J;
 Score Sc;
 Level Lev;
@@ -41,12 +42,13 @@ Barry Barr;
 std::vector<Boomerang> Boom;
 std::vector<Arc> arc;
 std::vector<Viserion> Vis;
+std::vector<Life> life;
 
 int busy = 0, counter = 0, lasercounter = 0, gameover = 0, ballooncounter = 0;
-int lasercount = 0, firecount = 0, dragoncounter = 0;
+int lasercount = 0, firecount = 0, dragoncounter = 0, icecounter = 0;
 int jump = 0, jumpduration = 0;
 int points = 0, prevpoints = -1;
-int in_arc = 0;
+int in_arc = 0, lifecount = 3;
 int level = 1, prevlevel = 0;
 float floorspeed = 0.02;
 
@@ -106,6 +108,8 @@ void draw() {
         M[0].draw(VP);
     if(Balloon.size() == 1)
         Balloon[0].draw(VP);
+    if(Ice.size() == 1)
+        Ice[0].draw(VP);
     if(J.size() == 1)
         J[0].draw(VP);
     Sc.draw(VP);
@@ -114,6 +118,8 @@ void draw() {
         Boom[0].draw(VP);
     if(Vis.size() == 1)
         Vis[0].draw(VP);
+    for(int i=0; i<life.size(); i++)
+        life[i].draw(VP);
 }
 
 void tick_input(GLFWwindow *window) {
@@ -150,6 +156,7 @@ void tick_input(GLFWwindow *window) {
 
 
 void tick_elements() {
+    // cout<<lifecount<<endl;
     bounding_box_t Barrbound;
     Barrbound.x = Barr.x;
     Barrbound.y = Barr.y;
@@ -173,6 +180,7 @@ void tick_elements() {
     ballooncounter++;
     jumpduration++;
     dragoncounter++;
+    icecounter++;
 
 // Levels
     if(counter % 1000 == 0){
@@ -206,8 +214,8 @@ void tick_elements() {
         if(in_arc == 0 && detect_collision(Boombound, Barrbound))
             destroy = 2;
         if(destroy == 2){
-            points -= min(points, 500);
-            // gameover = 1;
+            Boom.erase(Boom.begin());
+            lifecount--;
         }
     }
 
@@ -258,8 +266,6 @@ void tick_elements() {
 // Balloon
     if(Balloon.size() == 1){
         Balloon[0].tick();
-
-
         if(Balloon[0].position.y <= 1.3)
             Balloon.erase(Balloon.begin());
     }
@@ -286,8 +292,9 @@ void tick_elements() {
         Laserbound.height = 0.4;
         Laserbound.width = 9.7;
         if(in_arc == 0 && jump == 0 && L[0].on == 1 && detect_collision(Laserbound, Barrbound)){
-            points -= min(points, 500);
-            // gameover = 1;
+            L.erase(L.begin());
+            busy = 0;
+            lifecount--;
         }
         if(Balloon.size() == 1){
             Point Line_p, Line_q;
@@ -340,12 +347,13 @@ void tick_elements() {
                 if(doIntersect(Barr_d, Barr_a, Line_p, Line_q))
                     intersect = 1;
                 if(intersect == 1){
-                    points -= min(points, 500);
-                    // gameover = 1;
+                    lifecount--;
+                    F.erase(F.begin());
+                    busy = 0;
                 }
             }
 
-            if(Balloon.size() == 1){
+            if(F.size() == 1 && Balloon.size() == 1){
                 intersect = 0;
                 if(doIntersect(Balloon_a, Balloon_b, Line_p, Line_q))
                     intersect = 1;
@@ -404,10 +412,6 @@ void tick_elements() {
                 Barr.x = max((float)(Barr.x - 0.075), M[0].x);
             else if(M[0].x > Barr.x && Barr.x + 0.075 <= screen_length/2 - 0.5)
                 Barr.x = min((float)(Barr.x + 0.075), M[0].x);
-            // if(M[0].y < Barr.y)
-            //     Barr.y = max((float)(Barr.y - 0.075), M[0].y);
-            // else if(M[0].y > Barr.y && Barr.y + 0.025 <= screen_height - 1.0)
-            //     Barr.y = min((float)(Barr.y + 0.025), M[0].y);
         }
         if(M[0].x < -2.0){
             M.erase(M.begin());
@@ -427,7 +431,7 @@ void tick_elements() {
 
 // Barr
     Barr.tick(screen_length, screen_height);
-    if(Barr.y > 1 && in_arc == 0 && M.size() == 0)
+    if(Barr.y > 1 && in_arc == 0)
         Barr.speedy -= 0.005;
 
 // Coins
@@ -474,11 +478,30 @@ void tick_elements() {
         }
         if(Vis[0].life == 0)
             Vis.erase(Vis.begin());
+        if(Ice.size() == 0 && icecounter > 100){
+            Ice.push_back(Ellipse(Vis[0].position.x - 2.1, Vis[0].position.y + 1.5, 0.5, 0.3, -0.09, 0.15, COLOR_ICE));
+            icecounter = 0;
+        }
     }
     else if(Vis.size() == 0 && dragoncounter % 2000 == 0){
         Vis.push_back(Viserion(17.0, 4.0));
         dragoncounter = 0;
     }
+    if(Ice.size() == 1){
+        Ice[0].tick();
+        if(Ice[0].position.y <= 1.3)
+            Ice.erase(Ice.begin());
+    }
+
+// Lives
+
+    int i;
+    for(i=0; i<lifecount; i++)
+        life[i].tick();
+    for(; i<life.size();)
+        life.erase(life.begin() + i);
+    if(lifecount == 0)
+        gameover = 1;
 
     // camera_rotation_angle += 1;
 }
@@ -502,8 +525,9 @@ void initGL(GLFWwindow *window, int width, int height) {
     Barr = Barry(2.5, 1.0);
     Sc = Score(9.0, 7.5);
     Lev = Level(1.0, 7.5);
-    // Ci = Circle(4.0, 4.0, 1.0, 0.0, 0.0, COLOR_BLACK);
-    // J.push_back(Jump(4.0));
+    for(int i=0; i<3; i++)
+        life.push_back(Life(5.0 + (float)i , 7.5));
+
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");
     // Get a handle for our "MVP" uniform
