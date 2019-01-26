@@ -56,7 +56,7 @@ int jump = 0, jumpduration = 0;
 int points = 0, prevpoints = -1;
 int in_arc = 0, lifecount = 3;
 int level = 1, prevlevel = 0;
-float floorspeed = 0.02;
+float floorspeed = 0.04;
 int fire_on = 0, is_shield = 0;
 
 float screen_zoom = 1.0, screen_center_x = 0, screen_center_y = 0;
@@ -230,7 +230,7 @@ void tick_elements() {
         bounding_box_t Boombound;
         Boombound.x = Boom[0].x, Boombound.y = Boom[0].y - 0.7;
         Boombound.height = 1.4, Boombound.width = 0.8;
-        if(in_arc == 0 && detect_collision(Boombound, Barrbound))
+        if(jump == 0 && in_arc == 0 && detect_collision(Boombound, Barrbound))
             destroy = 2;
         if(destroy == 2){
             Boom.erase(Boom.begin());
@@ -282,7 +282,7 @@ void tick_elements() {
         if(destroy == 1)
             J.erase(J.begin());
     }
-    if(J.size() == 0 && counter%1350 == 0){
+    if(J.size() == 0 && counter%650 == 0){
         float y = 3.0 + rand()%5;
         J.push_back(Jump(y));
     }
@@ -338,6 +338,7 @@ void tick_elements() {
     if(Shieldarr.size() == 0 && is_shield == 1)
         Shieldarr.push_back(Shield((float)(Barr.x ), (float)(Barr.y) ) );
     else if(Shieldarr.size() == 1){
+        is_shield = 1;
         Shieldarr[0].tick((float)(Barr.x ), (float)(Barr.y) );
     }
 
@@ -520,8 +521,16 @@ void tick_elements() {
 
 // Barr
     Barr.tick(screen_length, screen_height);
-    if(Barr.y > 1 && in_arc == 0)
-        Barr.speedy -= 0.005;
+    if(Barr.y > 1 && in_arc == 0){
+        if(M.size() == 0)
+            Barr.speedy -= 0.005;
+        else{
+            if(M[0].y > Barr.y)
+                Barr.speedy += 0.001;
+            else
+                Barr.speedy -= 0.001;
+        }
+    }
 
 // Coins
     if(Coinarr.size() == 0){
@@ -592,7 +601,7 @@ void tick_elements() {
         Icebound.y = Ice[0].position.y - 0.3;
         Icebound.height = 0.6;
         Icebound.width = 1.0;
-        if(detect_collision(Icebound, Barrbound)){
+        if(jump == 0 && detect_collision(Icebound, Barrbound)){
             Ice.erase(Ice.begin());
             if(is_shield == 1){
                 is_shield = 0;
