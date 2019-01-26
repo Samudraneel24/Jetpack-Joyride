@@ -6,6 +6,7 @@
 using namespace std;
 
 Life::Life(float x, float y) {
+    this->speedx = this->speedy = 0;
     this->position = glm::vec3(x, y, 0);
     GLfloat vertex_buffer_data[] = {
       0, 0, 0,         

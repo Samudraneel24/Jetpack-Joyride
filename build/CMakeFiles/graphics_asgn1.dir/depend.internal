@@ -49,6 +49,7 @@ CMakeFiles/graphics_asgn1.dir/src/jump.cpp.o
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/jump.cpp
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/jump.h
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.h
 CMakeFiles/graphics_asgn1.dir/src/laser.cpp.o
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/laser.cpp
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/laser.h
@@ -61,6 +62,11 @@ CMakeFiles/graphics_asgn1.dir/src/level.cpp.o
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.h
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/sevenseg.h
+CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.o
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/circle.h
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/lifeball.cpp
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/lifeball.h
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
 CMakeFiles/graphics_asgn1.dir/src/lives.cpp.o
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/lives.cpp
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/lives.h
@@ -86,6 +92,7 @@ CMakeFiles/graphics_asgn1.dir/src/main.cpp.o
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/jump.h
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/laser.h
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/level.h
+ /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/lifeball.h
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/lives.h
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/magnet.h
  /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.cpp

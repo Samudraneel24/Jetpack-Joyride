@@ -171,6 +171,8 @@ main.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
 circle.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/circle.h
+rectangle.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.h
 
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/laser.cpp
 iostream
@@ -209,6 +211,26 @@ main.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
 sevenseg.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/sevenseg.h
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/lifeball.cpp
+iostream
+-
+fstream
+-
+algorithm
+-
+lifeball.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/lifeball.h
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
+circle.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/circle.h
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/lifeball.h
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
+circle.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/circle.h
 
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/lives.cpp
 iostream
@@ -285,6 +307,8 @@ viserion.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/viserion.h
 lives.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/lives.h
+lifeball.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/lifeball.h
 
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
 iostream

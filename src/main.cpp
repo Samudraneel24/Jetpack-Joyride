@@ -18,6 +18,7 @@
 #include "level.h"
 #include "viserion.h"
 #include "lives.h"
+#include "lifeball.h"
 
 using namespace std;
 
@@ -36,6 +37,7 @@ std::vector<Fire> F;
 std::vector<Magnet> M;
 std::vector<Ellipse> Balloon, Ice;
 std::vector<Jump> J;
+std::vector<Lifeball> Lball;
 Score Sc;
 Level Lev;
 Barry Barr;
@@ -112,6 +114,8 @@ void draw() {
         Ice[0].draw(VP);
     if(J.size() == 1)
         J[0].draw(VP);
+    if(Lball.size() == 1)
+        Lball[0].draw(VP);
     Sc.draw(VP);
     Lev.draw(VP);
     if(Boom.size() == 1)
@@ -261,6 +265,30 @@ void tick_elements() {
     if(J.size() == 0 && counter%2000 == 0){
         float y = 3.0 + rand()%5;
         J.push_back(Jump(y));
+    }
+
+// Lifeball
+    if(Lball.size() == 1){
+        bounding_box_t LBallbound;
+        LBallbound.x = Lball[0].C.position.x - Lball[0].radius;
+        LBallbound.y = Lball[0].y - Lball[0].radius;
+        LBallbound.height = LBallbound.width = 2.0*Lball[0].radius;
+        int destroy = 0;
+        if(in_arc == 0 && detect_collision(LBallbound, Barrbound)){
+            if(lifecount < 3){
+                life.push_back(Life(5.0 + (float)lifecount , 7.5));
+                lifecount++;
+            }
+            destroy = 1;
+        }
+        if(destroy == 0)
+            destroy = Lball[0].tick(floorarr[0].speedx);
+        if(destroy == 1)
+            Lball.erase(Lball.begin());
+    }
+    if(Lball.size() == 0 && counter%766 == 0){
+        float y = 3.0 + rand()%5;
+        Lball.push_back(Lifeball(y));
     }
  
 // Balloon
@@ -479,7 +507,7 @@ void tick_elements() {
         if(Vis[0].life == 0)
             Vis.erase(Vis.begin());
         if(Ice.size() == 0 && icecounter > 100){
-            Ice.push_back(Ellipse(Vis[0].position.x - 2.1, Vis[0].position.y + 1.5, 0.5, 0.3, -0.09, 0.15, COLOR_ICE));
+            Ice.push_back(Ellipse(Vis[0].position.x - 2.1, Vis[0].position.y + 1.5, 0.5, 0.3, -0.08, 0.15, COLOR_ICE));
             icecounter = 0;
         }
     }
@@ -489,6 +517,15 @@ void tick_elements() {
     }
     if(Ice.size() == 1){
         Ice[0].tick();
+        bounding_box_t Icebound;
+        Icebound.x = Ice[0].position.x - 0.5;
+        Icebound.y = Ice[0].position.y - 0.3;
+        Icebound.height = 0.6;
+        Icebound.width = 1.0;
+        if(detect_collision(Icebound, Barrbound)){
+            Ice.erase(Ice.begin());
+            lifecount--;
+        }
         if(Ice[0].position.y <= 1.3)
             Ice.erase(Ice.begin());
     }

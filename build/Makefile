@@ -474,6 +474,33 @@ src/level.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/level.cpp.s
 .PHONY : src/level.cpp.s
 
+src/lifeball.o: src/lifeball.cpp.o
+
+.PHONY : src/lifeball.o
+
+# target to build an object file
+src/lifeball.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.o
+.PHONY : src/lifeball.cpp.o
+
+src/lifeball.i: src/lifeball.cpp.i
+
+.PHONY : src/lifeball.i
+
+# target to preprocess a source file
+src/lifeball.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.i
+.PHONY : src/lifeball.cpp.i
+
+src/lifeball.s: src/lifeball.cpp.s
+
+.PHONY : src/lifeball.s
+
+# target to generate assembly for a file
+src/lifeball.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.s
+.PHONY : src/lifeball.cpp.s
+
 src/lives.o: src/lives.cpp.o
 
 .PHONY : src/lives.o
@@ -819,6 +846,9 @@ help:
 	@echo "... src/level.o"
 	@echo "... src/level.i"
 	@echo "... src/level.s"
+	@echo "... src/lifeball.o"
+	@echo "... src/lifeball.i"
+	@echo "... src/lifeball.s"
 	@echo "... src/lives.o"
 	@echo "... src/lives.i"
 	@echo "... src/lives.s"

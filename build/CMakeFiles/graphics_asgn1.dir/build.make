@@ -369,9 +369,33 @@ CMakeFiles/graphics_asgn1.dir/src/level.cpp.o.provides: CMakeFiles/graphics_asgn
 CMakeFiles/graphics_asgn1.dir/src/level.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/src/level.cpp.o
 
 
+CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
+CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.o: ../src/lifeball.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.o -c "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/lifeball.cpp"
+
+CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/lifeball.cpp" > CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.i
+
+CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/lifeball.cpp" -o CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.s
+
+CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.o.requires:
+
+.PHONY : CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.o.requires
+
+CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.o.provides: CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.o.requires
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.o.provides.build
+.PHONY : CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.o.provides
+
+CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.o
+
+
 CMakeFiles/graphics_asgn1.dir/src/lives.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/lives.cpp.o: ../src/lives.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/lives.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/lives.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/lives.cpp.o -c "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/lives.cpp"
 
 CMakeFiles/graphics_asgn1.dir/src/lives.cpp.i: cmake_force
@@ -395,7 +419,7 @@ CMakeFiles/graphics_asgn1.dir/src/lives.cpp.o.provides.build: CMakeFiles/graphic
 
 CMakeFiles/graphics_asgn1.dir/src/magnet.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/magnet.cpp.o: ../src/magnet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/magnet.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/magnet.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/magnet.cpp.o -c "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/magnet.cpp"
 
 CMakeFiles/graphics_asgn1.dir/src/magnet.cpp.i: cmake_force
@@ -419,7 +443,7 @@ CMakeFiles/graphics_asgn1.dir/src/magnet.cpp.o.provides.build: CMakeFiles/graphi
 
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/main.cpp.o -c "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.cpp"
 
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.i: cmake_force
@@ -443,7 +467,7 @@ CMakeFiles/graphics_asgn1.dir/src/main.cpp.o.provides.build: CMakeFiles/graphics
 
 CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o: ../src/nonedit.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o -c "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/nonedit.cpp"
 
 CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.i: cmake_force
@@ -467,7 +491,7 @@ CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o.provides.build: CMakeFiles/graph
 
 CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o: ../src/other_handlers.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o -c "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/other_handlers.cpp"
 
 CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.i: cmake_force
@@ -491,7 +515,7 @@ CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/graphics_asgn1.dir/src/rectangle.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/rectangle.cpp.o: ../src/rectangle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/rectangle.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/rectangle.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/rectangle.cpp.o -c "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.cpp"
 
 CMakeFiles/graphics_asgn1.dir/src/rectangle.cpp.i: cmake_force
@@ -515,7 +539,7 @@ CMakeFiles/graphics_asgn1.dir/src/rectangle.cpp.o.provides.build: CMakeFiles/gra
 
 CMakeFiles/graphics_asgn1.dir/src/score.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/score.cpp.o: ../src/score.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/score.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/score.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/score.cpp.o -c "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/score.cpp"
 
 CMakeFiles/graphics_asgn1.dir/src/score.cpp.i: cmake_force
@@ -539,7 +563,7 @@ CMakeFiles/graphics_asgn1.dir/src/score.cpp.o.provides.build: CMakeFiles/graphic
 
 CMakeFiles/graphics_asgn1.dir/src/semicircle.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/semicircle.cpp.o: ../src/semicircle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/semicircle.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/semicircle.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/semicircle.cpp.o -c "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/semicircle.cpp"
 
 CMakeFiles/graphics_asgn1.dir/src/semicircle.cpp.i: cmake_force
@@ -563,7 +587,7 @@ CMakeFiles/graphics_asgn1.dir/src/semicircle.cpp.o.provides.build: CMakeFiles/gr
 
 CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o: ../src/sevenseg.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o -c "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/sevenseg.cpp"
 
 CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.i: cmake_force
@@ -587,7 +611,7 @@ CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o.provides.build: CMakeFiles/grap
 
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o: ../src/timer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o -c "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/timer.cpp"
 
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.i: cmake_force
@@ -611,7 +635,7 @@ CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o.provides.build: CMakeFiles/graphic
 
 CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o: ../src/viserion.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o -c "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/viserion.cpp"
 
 CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.i: cmake_force
@@ -648,6 +672,7 @@ graphics_asgn1_OBJECTS = \
 "CMakeFiles/graphics_asgn1.dir/src/jump.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/laser.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/level.cpp.o" \
+"CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/lives.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/magnet.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/main.cpp.o" \
@@ -676,6 +701,7 @@ graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/input.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/jump.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/laser.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/level.cpp.o
+graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/lives.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/magnet.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/main.cpp.o
@@ -689,7 +715,7 @@ graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/build.make
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_25) "Linking CXX executable graphics_asgn1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_26) "Linking CXX executable graphics_asgn1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/graphics_asgn1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -710,6 +736,7 @@ CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/input.
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/jump.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/laser.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/level.cpp.o.requires
+CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/lifeball.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/lives.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/magnet.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/main.cpp.o.requires

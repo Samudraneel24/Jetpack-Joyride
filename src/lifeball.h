@@ -1,22 +1,20 @@
 #include "main.h"
 #include "circle.h"
-#include "rectangle.h"
 
-#ifndef JUMP_H
-#define JUMP_H
+#ifndef Lifeball_H
+#define Lifeball_H
 
 
-class Jump {
+class Lifeball {
 public:
-    Jump() {}
-    Jump(float y);
+    Lifeball() {}
+    Lifeball(float y);
     void draw(glm::mat4 VP);
     int tick(float speedx);
     float x, y, radius, speedx, speedy;
     Circle C;
-    Rectangle Up, Down;
 private:
     VAO *object;
 };
 
-#endif // JUMP_H
+#endif // Lifeball_H

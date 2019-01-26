@@ -15,6 +15,7 @@ public:
     void draw(glm::mat4 VP);
     void tick();
     Semicircle Left, Right;
+    float speedx, speedy;
 private:
     VAO *object;
 };
