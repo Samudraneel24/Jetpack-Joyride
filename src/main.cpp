@@ -53,6 +53,7 @@ int points = 0, prevpoints = -1;
 int in_arc = 0, lifecount = 3;
 int level = 1, prevlevel = 0;
 float floorspeed = 0.02;
+int fire_on = 0;
 
 float screen_zoom = 1.0, screen_center_x = 0, screen_center_y = 0;
 float camera_rotation_angle = 0;
@@ -99,7 +100,7 @@ void draw() {
         arc[0].draw(VP);
     for(int i=0;i<20;i++)
         floorarr[i].draw(VP);
-    Barr.draw(VP);
+    Barr.draw(VP, fire_on);
     for(int i=0;i<Coinarr.size();i++)
         Coinarr[i].draw(VP);
     if(busy == 1)
@@ -130,7 +131,7 @@ void tick_input(GLFWwindow *window) {
     int left  = glfwGetKey(window, GLFW_KEY_LEFT);
     int right = glfwGetKey(window, GLFW_KEY_RIGHT);
     int up = glfwGetKey(window, GLFW_KEY_UP);
-    int w = glfwGetKey(window, GLFW_KEY_W);
+    int space = glfwGetKey(window, GLFW_KEY_SPACE);
     int scroll = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_MIDDLE);
     if (left) {
         // Do something
@@ -138,7 +139,7 @@ void tick_input(GLFWwindow *window) {
             Barr.x -= 0.1;
     }
     if(right){
-        if(Barr.x < (screen_length/2.0 - 1.0) )
+        if(Barr.x < (screen_length/2.0 - 0.75) )
             Barr.x += 0.1;
         else{
             for(int i=0;i<20;i++){
@@ -147,11 +148,14 @@ void tick_input(GLFWwindow *window) {
         }
     }
     if(up && in_arc == 0){
+        fire_on = 1;
         Barr.speedy += 0.01;
     }
-    if(w){
+    else
+        fire_on = 0;
+    if(space){
         if(ballooncounter > 200 && Balloon.size() == 0){
-            Balloon.push_back(Ellipse(Barr.x + 0.75, Barr.y + 0.5, 0.5, 0.3, 0.15, 0.15, COLOR_BLUE));
+            Balloon.push_back(Ellipse(Barr.x + 0.75, Barr.y + 0.3, 0.5, 0.3, 0.15, 0.15, COLOR_BLUE));
             ballooncounter = 0;
         }
     }
@@ -162,10 +166,10 @@ void tick_input(GLFWwindow *window) {
 void tick_elements() {
     // cout<<lifecount<<endl;
     bounding_box_t Barrbound;
-    Barrbound.x = Barr.x;
-    Barrbound.y = Barr.y;
+    Barrbound.x = Barr.x - 0.5;
+    Barrbound.y = Barr.y - 0.35;
     Barrbound.height = Barr.height;
-    Barrbound.width = Barr.length;
+    Barrbound.width = Barr.length + 0.25;
     Point Barr_a, Barr_b, Barr_c, Barr_d;
     Barr_a.x = Barrbound.x, Barr_a.y = Barrbound.y;
     Barr_b.x = Barrbound.x + Barrbound.width, Barr_b.y = Barrbound.y;
@@ -274,7 +278,7 @@ void tick_elements() {
         LBallbound.y = Lball[0].y - Lball[0].radius;
         LBallbound.height = LBallbound.width = 2.0*Lball[0].radius;
         int destroy = 0;
-        if(in_arc == 0 && detect_collision(LBallbound, Barrbound)){
+        if(detect_collision(LBallbound, Barrbound)){
             if(lifecount < 3){
                 life.push_back(Life(5.0 + (float)lifecount , 7.5));
                 lifecount++;
@@ -286,13 +290,14 @@ void tick_elements() {
         if(destroy == 1)
             Lball.erase(Lball.begin());
     }
-    if(Lball.size() == 0 && counter%766 == 0){
+    if(Lball.size() == 0 && counter%900 == 0){
         float y = 3.0 + rand()%5;
         Lball.push_back(Lifeball(y));
     }
  
 // Balloon
     if(Balloon.size() == 1){
+        Balloon[0].speedy -= 0.01;
         Balloon[0].tick();
         if(Balloon[0].position.y <= 1.3)
             Balloon.erase(Balloon.begin());
@@ -437,9 +442,9 @@ void tick_elements() {
         M[0].tick(floorarr[0].speedx, floorarr[0].speedy);
         if(in_arc == 0){
             if(M[0].x < Barr.x)
-                Barr.x = max((float)(Barr.x - 0.075), M[0].x);
-            else if(M[0].x > Barr.x && Barr.x + 0.075 <= screen_length/2 - 0.5)
-                Barr.x = min((float)(Barr.x + 0.075), M[0].x);
+                Barr.x = max((float)(Barr.x - 0.03), M[0].x);
+            else if(M[0].x > Barr.x && Barr.x + 0.03 <= screen_length/2 - 0.5)
+                Barr.x = min((float)(Barr.x + 0.03), M[0].x);
         }
         if(M[0].x < -2.0){
             M.erase(M.begin());
@@ -516,6 +521,7 @@ void tick_elements() {
         dragoncounter = 0;
     }
     if(Ice.size() == 1){
+        Ice[0].speedy -= 0.01;
         Ice[0].tick();
         bounding_box_t Icebound;
         Icebound.x = Ice[0].position.x - 0.5;
@@ -559,7 +565,7 @@ void initGL(GLFWwindow *window, int width, int height) {
             curx += 1.0;
         }
     }
-    Barr = Barry(2.5, 1.0);
+    Barr = Barry(2.5, 1.35);
     Sc = Score(9.0, 7.5);
     Lev = Level(1.0, 7.5);
     for(int i=0; i<3; i++)

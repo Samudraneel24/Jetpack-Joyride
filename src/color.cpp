@@ -17,3 +17,4 @@ const color_t COLOR_BACKGROUND = { 150, 200, 250 };
 const color_t COLOR_SILVER = {192, 192, 192};
 const color_t COLOR_WHITE = {255, 255, 255};
 const color_t COLOR_LIGHTBLUE = {100, 150, 255};
+const color_t COLOR_FIRE = {252, 116, 5};

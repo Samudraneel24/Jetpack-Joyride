@@ -16,8 +16,8 @@ CMakeFiles/graphics_asgn1.dir/src/ball.cpp.o: ../src/main.h
 
 CMakeFiles/graphics_asgn1.dir/src/barry.cpp.o: ../src/barry.cpp
 CMakeFiles/graphics_asgn1.dir/src/barry.cpp.o: ../src/barry.h
+CMakeFiles/graphics_asgn1.dir/src/barry.cpp.o: ../src/ellipse.h
 CMakeFiles/graphics_asgn1.dir/src/barry.cpp.o: ../src/main.h
-CMakeFiles/graphics_asgn1.dir/src/barry.cpp.o: ../src/rectangle.h
 
 CMakeFiles/graphics_asgn1.dir/src/boomerang.cpp.o: ../src/boomerang.cpp
 CMakeFiles/graphics_asgn1.dir/src/boomerang.cpp.o: ../src/boomerang.h

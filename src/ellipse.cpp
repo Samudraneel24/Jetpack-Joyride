@@ -55,6 +55,5 @@ void Ellipse::set_position(float x, float y) {
 void Ellipse::tick() {
     this->position.x += this->speedx;
     this->position.y += this->speedy;
-    this->speedy -= 0.01;
 }
 

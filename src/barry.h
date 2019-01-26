@@ -1,5 +1,5 @@
 #include "main.h"
-#include "rectangle.h"
+#include "ellipse.h"
 
 #ifndef BARRY_H
 #define BARRY_H
@@ -9,10 +9,12 @@ class Barry {
 public:
     Barry() {}
     Barry(float x, float y);
-    void draw(glm::mat4 VP);
+    glm::vec3 position;
+    void set_position(float x, float y);
+    void draw(glm::mat4 VP, int fire_on);
     void tick(float screen_length, float screen_height);
-    float x, y, speedx, speedy, length, height;
-    Rectangle R;
+    float x, y, speedx, speedy, length, height, Baseheight;
+    Ellipse Body, Head , Firetop;
 private:
     VAO *object;
 };

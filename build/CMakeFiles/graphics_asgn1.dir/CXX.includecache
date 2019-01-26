@@ -59,8 +59,8 @@ main.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/barry.h
 main.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
-rectangle.h
-/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.h
+ellipse.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/ellipse.h
 
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/boomerang.cpp
 iostream
