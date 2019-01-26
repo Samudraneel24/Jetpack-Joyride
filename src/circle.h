@@ -13,6 +13,7 @@ public:
     void set_position(float x, float y);
     void tick();
     float radius, speedx, speedy;
+    int value;
 private:
     VAO *object;
 };

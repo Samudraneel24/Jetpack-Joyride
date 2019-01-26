@@ -531,7 +531,15 @@ void tick_elements() {
         float cols = 1 + rand()%8;
         for(int i=0;i<rows;i++)
             for(int j = 0;j<cols;j++){
-                Coinarr.push_back(Circle( (startx + j)/2, (starty + i)/2 , 0.2, 0.0, 0.0, COLOR_GOLD));
+                int randval = rand()%10;
+                if(randval <= 2){
+                    Coinarr.push_back(Circle( (startx + j)/2, (starty + i)/2 , 0.2, 0.0, 0.0, COLOR_ORANGE));
+                    Coinarr[Coinarr.size() - 1].value = 25;
+                }
+                else{
+                    Coinarr.push_back(Circle( (startx + j)/2, (starty + i)/2 , 0.2, 0.0, 0.0, COLOR_GOLD));
+                    Coinarr[Coinarr.size() - 1].value = 10;
+                }
             }
     }
     for(int i=0;i < Coinarr.size(); i++){
@@ -541,7 +549,7 @@ void tick_elements() {
         Coinbound.height = 0.4;
         Coinbound.width = 0.4;
         if(detect_collision(Coinbound, Barrbound)){
-            points += 10;
+            points += Coinarr[i].value;
             Coinarr.erase(Coinarr.begin() + i);
             i--;
         }
