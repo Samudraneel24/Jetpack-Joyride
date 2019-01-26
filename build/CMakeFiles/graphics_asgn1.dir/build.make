@@ -609,9 +609,33 @@ CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o.provides: CMakeFiles/graphics_a
 CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o
 
 
+CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
+CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.o: ../src/shieldball.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.o -c "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/shieldball.cpp"
+
+CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/shieldball.cpp" > CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.i
+
+CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/shieldball.cpp" -o CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.s
+
+CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.o.requires:
+
+.PHONY : CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.o.requires
+
+CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.o.provides: CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.o.requires
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.o.provides.build
+.PHONY : CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.o.provides
+
+CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.o
+
+
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o: ../src/timer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o -c "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/timer.cpp"
 
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.i: cmake_force
@@ -635,7 +659,7 @@ CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o.provides.build: CMakeFiles/graphic
 
 CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o: ../src/viserion.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o -c "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/viserion.cpp"
 
 CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.i: cmake_force
@@ -682,6 +706,7 @@ graphics_asgn1_OBJECTS = \
 "CMakeFiles/graphics_asgn1.dir/src/score.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/semicircle.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o" \
+"CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o"
 
@@ -711,11 +736,12 @@ graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/rectangle.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/score.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/semicircle.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o
+graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/build.make
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_26) "Linking CXX executable graphics_asgn1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_27) "Linking CXX executable graphics_asgn1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/graphics_asgn1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -746,6 +772,7 @@ CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/rectan
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/score.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/semicircle.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o.requires
+CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o.requires
 

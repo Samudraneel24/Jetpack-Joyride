@@ -100,6 +100,7 @@ CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/rectangle.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/score.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/semicircle.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/sevenseg.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/shieldball.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/timer.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/viserion.h
 
@@ -127,6 +128,12 @@ CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o: ../src/main.h
 CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o: ../src/rectangle.h
 CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o: ../src/sevenseg.cpp
 CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o: ../src/sevenseg.h
+
+CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.o: ../src/circle.h
+CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.o: ../src/main.h
+CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.o: ../src/rectangle.h
+CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.o: ../src/shieldball.cpp
+CMakeFiles/graphics_asgn1.dir/src/shieldball.cpp.o: ../src/shieldball.h
 
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o: ../src/timer.cpp
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o: ../src/timer.h

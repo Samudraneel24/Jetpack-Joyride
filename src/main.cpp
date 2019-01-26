@@ -19,6 +19,7 @@
 #include "viserion.h"
 #include "lives.h"
 #include "lifeball.h"
+#include "shieldball.h"
 
 using namespace std;
 
@@ -38,6 +39,7 @@ std::vector<Magnet> M;
 std::vector<Ellipse> Balloon, Ice;
 std::vector<Jump> J;
 std::vector<Lifeball> Lball;
+std::vector<Shieldball> Sball;
 Score Sc;
 Level Lev;
 Barry Barr;
@@ -53,7 +55,7 @@ int points = 0, prevpoints = -1;
 int in_arc = 0, lifecount = 3;
 int level = 1, prevlevel = 0;
 float floorspeed = 0.02;
-int fire_on = 0;
+int fire_on = 0, is_shield = 0;
 
 float screen_zoom = 1.0, screen_center_x = 0, screen_center_y = 0;
 float camera_rotation_angle = 0;
@@ -117,6 +119,8 @@ void draw() {
         J[0].draw(VP);
     if(Lball.size() == 1)
         Lball[0].draw(VP);
+    if(Sball.size() == 1)
+        Sball[0].draw(VP);
     Sc.draw(VP);
     Lev.draw(VP);
     if(Boom.size() == 1)
@@ -266,7 +270,7 @@ void tick_elements() {
         if(destroy == 1)
             J.erase(J.begin());
     }
-    if(J.size() == 0 && counter%2000 == 0){
+    if(J.size() == 0 && counter%1350 == 0){
         float y = 3.0 + rand()%5;
         J.push_back(Jump(y));
     }
@@ -294,7 +298,29 @@ void tick_elements() {
         float y = 3.0 + rand()%5;
         Lball.push_back(Lifeball(y));
     }
+
+// Shieldball
  
+    if(Sball.size() == 1){
+        bounding_box_t Sballbound;
+        Sballbound.x = Sball[0].C.position.x - Sball[0].radiusA;
+        Sballbound.y = Sball[0].y - Sball[0].radiusA;
+        Sballbound.height = Sballbound.width = 2.0*Sball[0].radiusA;
+        int destroy = 0;
+        if(detect_collision(Sballbound, Barrbound)){
+            is_shield = 1;
+            destroy = 1;
+        }
+        if(destroy == 0)
+            destroy = Sball[0].tick(floorarr[0].speedx);
+        if(destroy == 1)
+            Sball.erase(Sball.begin());
+    }
+    if(Sball.size() == 0 && counter%750 == 0){
+        float y = 3.0 + rand()%5;
+        Sball.push_back(Shieldball(y));
+    }
+
 // Balloon
     if(Balloon.size() == 1){
         Balloon[0].speedy -= 0.01;

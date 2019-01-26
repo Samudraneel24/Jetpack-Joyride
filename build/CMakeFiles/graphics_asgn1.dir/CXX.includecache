@@ -309,6 +309,8 @@ lives.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/lives.h
 lifeball.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/lifeball.h
+shieldball.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/shieldball.h
 
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
 iostream
@@ -441,6 +443,28 @@ rectangle.h
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.h
 string
 -
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/shieldball.cpp
+iostream
+-
+fstream
+-
+algorithm
+-
+shieldball.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/shieldball.h
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
+circle.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/circle.h
+
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/shieldball.h
+main.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/main.h
+circle.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/circle.h
+rectangle.h
+/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/rectangle.h
 
 /home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/timer.cpp
 timer.h
