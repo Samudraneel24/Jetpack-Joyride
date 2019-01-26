@@ -21,6 +21,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/graphics_asgn1.dir/src/semicircle.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o"
+  "CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o"
   "graphics_asgn1.pdb"
   "graphics_asgn1"
 )

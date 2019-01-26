@@ -16,6 +16,7 @@
 #include "arc.h"
 #include "barry.h"
 #include "level.h"
+#include "viserion.h"
 
 using namespace std;
 
@@ -39,9 +40,10 @@ Level Lev;
 Barry Barr;
 std::vector<Boomerang> Boom;
 std::vector<Arc> arc;
+std::vector<Viserion> Vis;
 
 int busy = 0, counter = 0, lasercounter = 0, gameover = 0, ballooncounter = 0;
-int lasercount = 0, firecount = 0;
+int lasercount = 0, firecount = 0, dragoncounter = 0;
 int jump = 0, jumpduration = 0;
 int points = 0, prevpoints = -1;
 int in_arc = 0;
@@ -110,6 +112,8 @@ void draw() {
     Lev.draw(VP);
     if(Boom.size() == 1)
         Boom[0].draw(VP);
+    if(Vis.size() == 1)
+        Vis[0].draw(VP);
 }
 
 void tick_input(GLFWwindow *window) {
@@ -151,11 +155,24 @@ void tick_elements() {
     Barrbound.y = Barr.y;
     Barrbound.height = Barr.height;
     Barrbound.width = Barr.length;
+    Point Barr_a, Barr_b, Barr_c, Barr_d;
+    Barr_a.x = Barrbound.x, Barr_a.y = Barrbound.y;
+    Barr_b.x = Barrbound.x + Barrbound.width, Barr_b.y = Barrbound.y;
+    Barr_c.x = Barrbound.x, Barr_c.y = Barrbound.y + Barrbound.height;
+    Barr_d.x = Barrbound.x + Barrbound.width, Barr_d.y = Barrbound.y + Barrbound.height;
+    Point Balloon_a, Balloon_b, Balloon_c, Balloon_d;
+    if(Balloon.size() == 1){
+        Balloon_a.x = Balloon[0].position.x - 0.5, Balloon_a.y = Balloon[0].position.y - 0.3;
+        Balloon_b.x = Balloon[0].position.x + 0.5, Balloon_b.y = Balloon[0].position.y - 0.3;
+        Balloon_c.x = Balloon[0].position.x + 0.5, Balloon_c.y = Balloon[0].position.y + 0.3;
+        Balloon_d.x = Balloon[0].position.x - 0.5, Balloon_d.y = Balloon[0].position.y + 0.3;
+    }
 
     counter++;
     lasercounter++;
     ballooncounter++;
     jumpduration++;
+    dragoncounter++;
 
 // Levels
     if(counter % 1000 == 0){
@@ -188,8 +205,10 @@ void tick_elements() {
         Boombound.height = 1.4, Boombound.width = 0.8;
         if(in_arc == 0 && detect_collision(Boombound, Barrbound))
             destroy = 2;
-        if(destroy == 2)
-            gameover = 1;
+        if(destroy == 2){
+            points -= min(points, 500);
+            // gameover = 1;
+        }
     }
 
 // Arc
@@ -266,25 +285,22 @@ void tick_elements() {
         Laserbound.y = L[0].y;
         Laserbound.height = 0.4;
         Laserbound.width = 9.7;
-        if(in_arc == 0 && jump == 0 && L[0].on == 1 && detect_collision(Laserbound, Barrbound))
-            gameover = 1;
+        if(in_arc == 0 && jump == 0 && L[0].on == 1 && detect_collision(Laserbound, Barrbound)){
+            points -= min(points, 500);
+            // gameover = 1;
+        }
         if(Balloon.size() == 1){
             Point Line_p, Line_q;
-            Point a, b, c, d;
             Line_p.x = L[0].left + 0.8, Line_p.y = L[0].y;
             Line_q.x = L[0].left + 9.7, Line_q.y = L[0].y;
-            a.x = Balloon[0].position.x - 0.5, a.y = Balloon[0].position.y - 0.3;
-            b.x = Balloon[0].position.x + 0.5, b.y = Balloon[0].position.y - 0.3;
-            c.x = Balloon[0].position.x + 0.5, c.y = Balloon[0].position.y + 0.3;
-            d.x = Balloon[0].position.x - 0.5, d.y = Balloon[0].position.y + 0.3;
             int intersect = 0;
-            if(doIntersect(a, b, Line_p, Line_q))
+            if(doIntersect(Balloon_a, Balloon_b, Line_p, Line_q))
                 intersect = 1;
-            if(doIntersect(b, c, Line_p, Line_q))
+            if(doIntersect(Balloon_b, Balloon_c, Line_p, Line_q))
                 intersect = 1;
-            if(doIntersect(c, d, Line_p, Line_q))
+            if(doIntersect(Balloon_c, Balloon_d, Line_p, Line_q))
                 intersect = 1;
-            if(doIntersect(d, a, Line_p, Line_q))
+            if(doIntersect(Balloon_d, Balloon_a, Line_p, Line_q))
                 intersect = 1;
             if(intersect == 1){
                 Balloon.erase(Balloon.begin());
@@ -311,40 +327,33 @@ void tick_elements() {
         }
         if(jump == 0 && F.size() > 0){
             Point Line_p, Line_q;
-            Point a, b, c, d;
             Line_p.x = F[0].leftx, Line_p.y = F[0].lefty;
             Line_q.x = F[0].rightx, Line_q.y = F[0].righty;
-            a.x = Barrbound.x, a.y = Barrbound.y;
-            b.x = Barrbound.x + Barrbound.width, b.y = Barrbound.y;
-            c.x = Barrbound.x, c.y = Barrbound.y + Barrbound.height;
-            d.x = Barrbound.x + Barrbound.width, d.y = Barrbound.y + Barrbound.height;
             int intersect = 0;
             if(in_arc == 0){
-                if(doIntersect(a, b, Line_p, Line_q))
+                if(doIntersect(Barr_a, Barr_b, Line_p, Line_q))
                     intersect = 1;
-                if(doIntersect(b, c, Line_p, Line_q))
+                if(doIntersect(Barr_b, Barr_c, Line_p, Line_q))
                     intersect = 1;
-                if(doIntersect(c, d, Line_p, Line_q))
+                if(doIntersect(Barr_c, Barr_d, Line_p, Line_q))
                     intersect = 1;
-                if(doIntersect(d, a, Line_p, Line_q))
+                if(doIntersect(Barr_d, Barr_a, Line_p, Line_q))
                     intersect = 1;
-                if(intersect == 1)
-                    gameover = 1;
+                if(intersect == 1){
+                    points -= min(points, 500);
+                    // gameover = 1;
+                }
             }
 
             if(Balloon.size() == 1){
-                a.x = Balloon[0].position.x - 0.5, a.y = Balloon[0].position.y - 0.3;
-                b.x = Balloon[0].position.x + 0.5, b.y = Balloon[0].position.y - 0.3;
-                c.x = Balloon[0].position.x + 0.5, c.y = Balloon[0].position.y + 0.3;
-                d.x = Balloon[0].position.x - 0.5, d.y = Balloon[0].position.y + 0.3;
                 intersect = 0;
-                if(doIntersect(a, b, Line_p, Line_q))
+                if(doIntersect(Balloon_a, Balloon_b, Line_p, Line_q))
                     intersect = 1;
-                if(doIntersect(b, c, Line_p, Line_q))
+                if(doIntersect(Balloon_b, Balloon_c, Line_p, Line_q))
                     intersect = 1;
-                if(doIntersect(c, d, Line_p, Line_q))
+                if(doIntersect(Balloon_c, Balloon_d, Line_p, Line_q))
                     intersect = 1;
-                if(doIntersect(d, a, Line_p, Line_q))
+                if(doIntersect(Balloon_d, Balloon_a, Line_p, Line_q))
                     intersect = 1;
                 if(intersect == 1){
                     Balloon.erase(Balloon.begin());
@@ -392,13 +401,13 @@ void tick_elements() {
         M[0].tick(floorarr[0].speedx, floorarr[0].speedy);
         if(in_arc == 0){
             if(M[0].x < Barr.x)
-                Barr.x -= 0.05;
-            else if(M[0].x > Barr.x && Barr.x + 0.05 <= screen_length/2 - 0.5)
-                Barr.x += 0.05;
-            if(M[0].y < Barr.y)
-                Barr.y -= 0.05;
-            else if(M[0].y > Barr.y && Barr.y + 0.05 <= screen_height - 1.0)
-                Barr.y += 0.05;
+                Barr.x = max((float)(Barr.x - 0.075), M[0].x);
+            else if(M[0].x > Barr.x && Barr.x + 0.075 <= screen_length/2 - 0.5)
+                Barr.x = min((float)(Barr.x + 0.075), M[0].x);
+            // if(M[0].y < Barr.y)
+            //     Barr.y = max((float)(Barr.y - 0.075), M[0].y);
+            // else if(M[0].y > Barr.y && Barr.y + 0.025 <= screen_height - 1.0)
+            //     Barr.y = min((float)(Barr.y + 0.025), M[0].y);
         }
         if(M[0].x < -2.0){
             M.erase(M.begin());
@@ -418,7 +427,7 @@ void tick_elements() {
 
 // Barr
     Barr.tick(screen_length, screen_height);
-    if(Barr.y > 1 && in_arc == 0)
+    if(Barr.y > 1 && in_arc == 0 && M.size() == 0)
         Barr.speedy -= 0.005;
 
 // Coins
@@ -451,6 +460,24 @@ void tick_elements() {
             Coinarr.erase(Coinarr.begin() + i);
             i--;
         }
+    }
+
+// Viserion
+    if(Vis.size() == 1){
+        Vis[0].tick(floorspeed, Barr.y);
+        int col = 0;
+        if(Balloon.size() == 1)
+            col = Vis[0].check_col(Balloon_a, Balloon_b, Balloon_c, Balloon_d);
+        if(col == 1){
+            Balloon.erase(Balloon.begin());
+            Vis[0].life --;
+        }
+        if(Vis[0].life == 0)
+            Vis.erase(Vis.begin());
+    }
+    else if(Vis.size() == 0 && dragoncounter % 2000 == 0){
+        Vis.push_back(Viserion(17.0, 4.0));
+        dragoncounter = 0;
     }
 
     // camera_rotation_angle += 1;

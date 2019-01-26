@@ -86,6 +86,7 @@ CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/score.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/semicircle.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/sevenseg.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/timer.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/viserion.h
 
 CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o: ../src/main.h
 CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o: ../src/nonedit.cpp
@@ -114,4 +115,9 @@ CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o: ../src/sevenseg.h
 
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o: ../src/timer.cpp
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o: ../src/timer.h
+
+CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o: ../src/Lineintersection.h
+CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o: ../src/main.h
+CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o: ../src/viserion.cpp
+CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o: ../src/viserion.h
 

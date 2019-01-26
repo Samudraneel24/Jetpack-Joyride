@@ -5,6 +5,7 @@
 #include "main.h"
 #include "semicircle.h"
 #include "rectangle.h"
+#define sqr(x) ((x)*(x))
 using namespace std;
 
 Semicircle Small, Large;
@@ -46,3 +47,8 @@ void Magnet::tick(float speedx, float speedy) {
     this->x = Large.position.x;
     this->y = Large.position.y;
 }
+
+float Magnet::Distance(float xcord, float ycord){
+    return sqrt( sqr(this->x - xcord) + sqr(this->y - ycord));
+}
+

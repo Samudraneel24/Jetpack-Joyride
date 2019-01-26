@@ -10,6 +10,7 @@ public:
     Magnet(float x, float y);
     void draw(glm::mat4 VP);
     void tick(float speedx, float speedy);
+    float Distance(float xcord, float ycord);
     float x, y, speedx, speedy;
 private:
     VAO *object;

@@ -717,6 +717,33 @@ src/timer.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/timer.cpp.s
 .PHONY : src/timer.cpp.s
 
+src/viserion.o: src/viserion.cpp.o
+
+.PHONY : src/viserion.o
+
+# target to build an object file
+src/viserion.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o
+.PHONY : src/viserion.cpp.o
+
+src/viserion.i: src/viserion.cpp.i
+
+.PHONY : src/viserion.i
+
+# target to preprocess a source file
+src/viserion.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.i
+.PHONY : src/viserion.cpp.i
+
+src/viserion.s: src/viserion.cpp.s
+
+.PHONY : src/viserion.s
+
+# target to generate assembly for a file
+src/viserion.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.s
+.PHONY : src/viserion.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -792,6 +819,9 @@ help:
 	@echo "... src/timer.o"
 	@echo "... src/timer.i"
 	@echo "... src/timer.s"
+	@echo "... src/viserion.o"
+	@echo "... src/viserion.i"
+	@echo "... src/viserion.s"
 .PHONY : help
 
 

@@ -26,6 +26,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/semicircle.cpp" "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles/graphics_asgn1.dir/src/semicircle.cpp.o"
   "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/sevenseg.cpp" "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles/graphics_asgn1.dir/src/sevenseg.cpp.o"
   "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/timer.cpp" "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o"
+  "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/src/viserion.cpp" "/home/samudraneel/Sem-4/Graphics/Assignment 1/Jetpack-Joyride/build/CMakeFiles/graphics_asgn1.dir/src/viserion.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
